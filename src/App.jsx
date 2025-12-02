@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Github, Linkedin, Mail, Code2, Database, Layout, Terminal, ChevronRight, ArrowUp, X, ShieldCheck, Menu, Minus, Maximize2, ExternalLink, CheckCircle2, ArrowLeft, Activity, Wifi, Download } from 'lucide-react';
 
-// --- HOOK: TÍTULO ANIMADO (Movido para fora para evitar erros) ---
+// --- HOOK: TÍTULO ANIMADO (CORRIGIDO E SEGURO) ---
 const useTypewriterTitleLoop = (text) => {
-  // useRef mantém o estado sem forçar re-render do componente visual
   const state = useRef({ phase: 'typing', index: 0 });
   
   useEffect(() => {
@@ -36,7 +35,7 @@ const useTypewriterTitleLoop = (text) => {
         }
       }
 
-      // Cursor piscante simples
+      // Cursor piscante simulado
       const cursor = s.phase === 'pausing' ? ((Date.now() / 500) % 2 > 1 ? '_' : ' ') : '_';
       document.title = text.substring(0, s.index) + cursor;
       
@@ -63,7 +62,8 @@ const projectsData = [
       "Search and filter events by date, category, and location.",
       "Send updates and provide simple dashboards for organizers and attendees."
     ],
-    tags: ["Java", "Hibernate", "Maven", "Spring Boot"],
+    tags: ["Java", "Hibernate", "Maven"],
+    // Imagem do projeto (usando ImgBB)
     image: "https://i.ibb.co/hJ2KfPwy/520550974-57080c2c-f014-4acd-9ec1-0c99dd6a061e.png",
     links: { live: "", github: "https://github.com/barbosaz1/Equipa10_comp2" } 
   },
@@ -226,7 +226,6 @@ const TechLogoCard = ({ name, icon }) => (
 
 const ProjectCard = ({ project, onClick }) => (
   <motion.div 
-    layoutId={`card-container-${project.id}`}
     whileHover={{ y: -8 }}
     onClick={onClick}
     className="group relative bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-green-900/20 hover:border-green-500/30 transition-all duration-500"
@@ -234,7 +233,6 @@ const ProjectCard = ({ project, onClick }) => (
     <div className="h-56 overflow-hidden relative">
        <div className="absolute inset-0 bg-green-900/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
        <motion.img 
-         layoutId={`card-image-${project.id}`} 
          src={project.image} 
          alt={project.title} 
          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" 
@@ -242,7 +240,7 @@ const ProjectCard = ({ project, onClick }) => (
     </div>
     <div className="p-8 flex flex-col gap-4">
       <div>
-        <motion.h3 layoutId={`card-title-${project.id}`} className="text-2xl font-bold text-white mb-1 group-hover:text-green-400 transition-colors">{project.title}</motion.h3>
+        <motion.h3 className="text-2xl font-bold text-white mb-1 group-hover:text-green-400 transition-colors">{project.title}</motion.h3>
         <span className="text-sm font-mono text-gray-500">{project.subtitle}</span>
       </div>
       <p className="text-gray-400 text-sm leading-relaxed">{project.description}</p>
@@ -331,7 +329,7 @@ const SnakeGame = ({ onClose }) => {
       });
     }, SPEED);
     return () => clearInterval(interval);
-  }, [direction, gameOver, food, score, highScore]); // Corrigido dependencias
+  }, [direction, gameOver, food, score, highScore]);
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -482,6 +480,7 @@ const HomeView = ({ onOpenTerminal, onSelectProject }) => {
               <p className="text-green-400 font-mono mb-6 text-sm tracking-widest uppercase">Hello, World</p>
               
               <div className="overflow-hidden mb-6">
+                {/* CORREÇÃO CRÍTICA: Título estático para não causar conflito visual/crash */}
                 <motion.h1 
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -588,6 +587,9 @@ const HomeView = ({ onOpenTerminal, onSelectProject }) => {
 const ProjectDetailsView = ({ project, onBack }) => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
+  // --- CORREÇÃO DE SEGURANÇA: Se o projeto não existir (erro de timing), não renderiza nada ---
+  if (!project) return null;
+
   return (
     <motion.div 
       initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 50 }} 
@@ -644,14 +646,17 @@ const ProjectDetailsView = ({ project, onBack }) => {
   );
 };
 
+// --- APP ROOT ---
 export default function Portfolio() {
   const [currentView, setCurrentView] = useState('home');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
+  // --- ATIVA O TÍTULO ANIMADO EM LOOP (Suave) ---
   useTypewriterTitleLoop("Hi, I am Rodrigo 👋🏻");
 
+  // --- HISTORY API HANDLING (BACK BUTTON) ---
   useEffect(() => {
     const handlePopState = (event) => {
       if (event.state?.view === 'project') {
@@ -688,58 +693,56 @@ export default function Portfolio() {
   };
 
   return (
-    <LayoutGroup>
-      <div className="min-h-screen bg-[#050505] text-white selection:bg-green-500/30 font-sans relative">
-        <div className="fixed inset-0 pointer-events-none" 
-          style={{ 
-            backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)`,
-            backgroundSize: '40px 40px',
-            maskImage: 'radial-gradient(circle at center, black 40%, transparent 100%)'
-          }} 
-        />
-        <div className="fixed inset-0 pointer-events-none transition-opacity duration-300" style={{ background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.08), transparent 40%)` }} />
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-green-500/30 font-sans relative">
+      <div className="fixed inset-0 pointer-events-none" 
+        style={{ 
+          backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(circle at center, black 40%, transparent 100%)'
+        }} 
+      />
+      <div className="fixed inset-0 pointer-events-none transition-opacity duration-300" style={{ background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.08), transparent 40%)` }} />
 
-        <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-[#050505]/80 border-b border-white/5">
-          <div className="flex justify-between items-center px-6 md:px-12 py-5 max-w-7xl mx-auto">
-            <div className="text-xl font-bold font-mono cursor-pointer flex items-center gap-2 group" onClick={() => { navigateHome(); }}>
-              <div className="p-1.5 bg-green-500/10 rounded-md border border-green-500/20 group-hover:border-green-500/50 transition-colors">
-                <Terminal size={20} className="text-green-500" />
-              </div>
-              <span className="group-hover:text-green-400 transition-colors">Barbosa</span>
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-[#050505]/80 border-b border-white/5">
+        <div className="flex justify-between items-center px-6 md:px-12 py-5 max-w-7xl mx-auto">
+          <div className="text-xl font-bold font-mono cursor-pointer flex items-center gap-2 group" onClick={() => { navigateHome(); }}>
+            <div className="p-1.5 bg-green-500/10 rounded-md border border-green-500/20 group-hover:border-green-500/50 transition-colors">
+              <Terminal size={20} className="text-green-500" />
             </div>
-
-            {currentView === 'home' ? (
-              <div className="flex items-center gap-8">
-                <div className="hidden md:flex gap-8 text-sm font-mono text-gray-400">
-                  {['About', 'Skills', 'Projects', 'Contact'].map((item, i) => (
-                    <a key={item} href={`#${item.toLowerCase()}`} onClick={(e) => { e.preventDefault(); document.getElementById(item.toLowerCase())?.scrollIntoView({behavior:'smooth'}) }} className="hover:text-green-400 transition-colors">
-                      <span className="text-green-500">0{i+1}</span> // {item}
-                    </a>
-                  ))}
-                </div>
-                <a href="/resume.pdf" download className="hidden md:flex items-center gap-2 text-xs font-mono text-green-400 border border-green-500/30 px-3 py-1.5 rounded hover:bg-green-500/10 transition-colors">
-                  <Download size={14} /> CV
-                </a>
-              </div>
-            ) : (
-              <button onClick={navigateHome} className="text-sm font-mono text-gray-400 hover:text-white transition-colors flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/> LIVE_VIEW
-              </button>
-            )}
+            <span className="group-hover:text-green-400 transition-colors">Barbosa</span>
           </div>
-        </nav>
 
-        <AnimatePresence mode="wait">
           {currentView === 'home' ? (
-            <HomeView key="home" onOpenTerminal={() => setIsTerminalOpen(true)} onSelectProject={navigateToProject} />
+            <div className="flex items-center gap-8">
+              <div className="hidden md:flex gap-8 text-sm font-mono text-gray-400">
+                {['About', 'Skills', 'Projects', 'Contact'].map((item, i) => (
+                  <a key={item} href={`#${item.toLowerCase()}`} onClick={(e) => { e.preventDefault(); document.getElementById(item.toLowerCase())?.scrollIntoView({behavior:'smooth'}) }} className="hover:text-green-400 transition-colors">
+                    <span className="text-green-500">0{i+1}</span> // {item}
+                  </a>
+                ))}
+              </div>
+              <a href="/CV - Rodrigo Barbosa.pdf" download className="hidden md:flex items-center gap-2 text-xs font-mono text-green-400 border border-green-500/30 px-3 py-1.5 rounded hover:bg-green-500/10 transition-colors">
+                <Download size={14} /> CV
+              </a>
+            </div>
           ) : (
-            <ProjectDetailsView key="project" project={selectedProject} onBack={navigateHome} />
+            <button onClick={navigateHome} className="text-sm font-mono text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"/> LIVE_VIEW
+            </button>
           )}
-        </AnimatePresence>
+        </div>
+      </nav>
 
-        <ScrollToTop />
-        <SecretTerminalModal isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
-      </div>
-    </LayoutGroup>
+      <AnimatePresence mode="wait">
+        {currentView === 'home' ? (
+          <HomeView key="home" onOpenTerminal={() => setIsTerminalOpen(true)} onSelectProject={navigateToProject} />
+        ) : (
+          <ProjectDetailsView key="project" project={selectedProject} onBack={navigateHome} />
+        )}
+      </AnimatePresence>
+
+      <ScrollToTop />
+      <SecretTerminalModal isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
+    </div>
   );
 }

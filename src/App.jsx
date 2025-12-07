@@ -289,7 +289,7 @@ const HeroHUD = () => {
   );
 };
 
-// --- SNAKE GAME (CORRIGIDO: BOX-CONTENT + OVERFLOW HIDDEN) ---
+// --- SNAKE GAME (MOBILE READY & BOUNDED) ---
 const SnakeGame = ({ onClose }) => {
   const GRID_SIZE = 20; const CELL_SIZE = 20; const SPEED = 100;
   const [snake, setSnake] = useState([[5, 5], [5, 4], [5, 3]]);
@@ -599,7 +599,7 @@ const HomeView = ({ onOpenTerminal, onSelectProject }) => {
                 <a href="https://github.com/barbosaz1" target="_blank" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Github size={24} /></a>
                 <a href="https://www.linkedin.com/in/rodrigo-barbosa-1243b1397" target="_blank" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Linkedin size={24} /></a>
              </div>
-             <a href="/CV - Rodrigo Barbosa.pdf" download className="p-4 bg-green-600 rounded-full hover:bg-green-500 hover:scale-110 transition-all text-black shadow-lg shadow-green-900/20 flex items-center gap-2 font-bold" title="Download CV">
+             <a href="/resume.pdf" download className="p-4 bg-green-600 rounded-full hover:bg-green-500 hover:scale-110 transition-all text-black shadow-lg shadow-green-900/20 flex items-center gap-2 font-bold" title="Download CV">
                <Download size={24} /> <span>Download CV</span>
              </a>
           </div>
@@ -743,7 +743,7 @@ export default function Portfolio() {
                   </a>
                 ))}
               </div>
-              <a href="/resume.pdf" download className="hidden md:flex items-center gap-2 text-xs font-mono text-green-400 border border-green-500/30 px-3 py-1.5 rounded hover:bg-green-500/10 transition-colors">
+              <a href="/CV - Rodrigo Barbosa.pdf" download className="hidden md:flex items-center gap-2 text-xs font-mono text-green-400 border border-green-500/30 px-3 py-1.5 rounded hover:bg-green-500/10 transition-colors">
                 <Download size={14} /> CV
               </a>
             </div>

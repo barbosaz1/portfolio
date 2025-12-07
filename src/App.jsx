@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Linkedin, Mail, Code2, Database, Layout, Terminal, ChevronRight, ArrowUp, X, ShieldCheck, Menu, Minus, Maximize2, ExternalLink, CheckCircle2, ArrowLeft, Activity, Wifi, Download } from 'lucide-react';
+import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { Github, Linkedin, Mail, Code2, Database, Layout, Terminal, ChevronRight, ArrowUp, X, ShieldCheck, Menu, Minus, Maximize2, ExternalLink, CheckCircle2, ArrowLeft, Activity, Wifi, Download, ArrowUpCircle, ArrowDownCircle, ArrowLeftCircle, ArrowRightCircle } from 'lucide-react';
 
-// --- HOOK: TÍTULO ANIMADO (CORRIGIDO E SEGURO) ---
+// --- HOOK: TÍTULO ANIMADO ---
 const useTypewriterTitleLoop = (text) => {
   const state = useRef({ phase: 'typing', index: 0 });
   
@@ -35,7 +35,6 @@ const useTypewriterTitleLoop = (text) => {
         }
       }
 
-      // Cursor piscante simulado
       const cursor = s.phase === 'pausing' ? ((Date.now() / 500) % 2 > 1 ? '_' : ' ') : '_';
       document.title = text.substring(0, s.index) + cursor;
       
@@ -63,7 +62,6 @@ const projectsData = [
       "Send updates and provide simple dashboards for organizers and attendees."
     ],
     tags: ["Java", "Hibernate", "Maven"],
-    // Imagem do projeto (usando ImgBB)
     image: "https://i.ibb.co/hJ2KfPwy/520550974-57080c2c-f014-4acd-9ec1-0c99dd6a061e.png",
     links: { live: "", github: "https://github.com/barbosaz1/Equipa10_comp2" } 
   },
@@ -291,7 +289,7 @@ const HeroHUD = () => {
   );
 };
 
-// --- SNAKE GAME ---
+// --- SNAKE GAME (ADAPTADO PARA MOBILE) ---
 const SnakeGame = ({ onClose }) => {
   const GRID_SIZE = 20; const CELL_SIZE = 20; const SPEED = 100;
   const [snake, setSnake] = useState([[5, 5], [5, 4], [5, 3]]);
@@ -306,6 +304,7 @@ const SnakeGame = ({ onClose }) => {
     let newFood;
     while (true) {
       newFood = [Math.floor(Math.random() * GRID_SIZE), Math.floor(Math.random() * GRID_SIZE)];
+      // eslint-disable-next-line
       const onSnake = snake.some(s => s[0] === newFood[0] && s[1] === newFood[1]);
       if (!onSnake) break;
     }
@@ -346,15 +345,34 @@ const SnakeGame = ({ onClose }) => {
     window.addEventListener("keydown", handleKey); gameRef.current?.focus(); return () => window.removeEventListener("keydown", handleKey);
   }, [direction, onClose]);
 
+  // Controlo Mobile (Botões)
+  const handleMobileControl = (dir) => {
+    if (dir === "UP" && direction !== "DOWN") setDirection("UP");
+    if (dir === "DOWN" && direction !== "UP") setDirection("DOWN");
+    if (dir === "LEFT" && direction !== "RIGHT") setDirection("LEFT");
+    if (dir === "RIGHT" && direction !== "LEFT") setDirection("RIGHT");
+  };
+
   return (
-    <div ref={gameRef} tabIndex={0} className="flex flex-col items-center justify-center h-full bg-black/90 font-mono outline-none">
+    <div ref={gameRef} tabIndex={0} className="flex flex-col items-center justify-center h-full bg-black/90 font-mono outline-none relative p-4">
       <div className="mb-4 text-center"><h3 className="text-green-500 font-bold">SNAKE.EXE</h3><div className="text-sm">Score: {score} | Best: {highScore}</div></div>
       <div className="relative bg-[#111] border border-green-500/30" style={{ width: GRID_SIZE*CELL_SIZE, height: GRID_SIZE*CELL_SIZE }}>
         {snake.map((s, i) => (<div key={i} className="absolute bg-green-500" style={{ top: s[0]*CELL_SIZE, left: s[1]*CELL_SIZE, width: CELL_SIZE-1, height: CELL_SIZE-1 }} />))}
         <div className="absolute bg-red-500 rounded-full" style={{ top: food[0]*CELL_SIZE, left: food[1]*CELL_SIZE, width: CELL_SIZE-2, height: CELL_SIZE-2, margin: 1 }} />
-        {gameOver && <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center"><span className="text-red-500 font-bold mb-2">GAME OVER</span><button onClick={() => {setSnake([[5,5],[5,4],[5,3]]); setScore(0); setGameOver(false); setDirection("RIGHT");}} className="px-4 py-2 bg-green-600 rounded text-black font-bold">RETRY</button><button onClick={onClose} className="mt-2 text-xs text-gray-500">EXIT (CTRL+C)</button></div>}
+        {gameOver && <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center z-10"><span className="text-red-500 font-bold mb-2">GAME OVER</span><button onClick={() => {setSnake([[5,5],[5,4],[5,3]]); setScore(0); setGameOver(false); setDirection("RIGHT");}} className="px-4 py-2 bg-green-600 rounded text-black font-bold">RETRY</button><button onClick={onClose} className="mt-2 text-xs text-gray-500">EXIT</button></div>}
       </div>
-      <div className="mt-4 text-xs text-gray-500">WASD / Arrows to move • CTRL+C to exit</div>
+      
+      {/* CONTROLOS MOBILE (D-PAD) */}
+      <div className="grid grid-cols-3 gap-2 mt-6 md:hidden">
+        <div />
+        <button onClick={() => handleMobileControl("UP")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors"><ArrowUpCircle /></button>
+        <div />
+        <button onClick={() => handleMobileControl("LEFT")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors"><ArrowLeftCircle /></button>
+        <button onClick={() => handleMobileControl("DOWN")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors"><ArrowDownCircle /></button>
+        <button onClick={() => handleMobileControl("RIGHT")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors"><ArrowRightCircle /></button>
+      </div>
+
+      <div className="mt-4 text-xs text-gray-500 hidden md:block">WASD / Arrows to move • CTRL+C to exit</div>
     </div>
   );
 };
@@ -375,7 +393,7 @@ const SecretTerminalModal = ({ isOpen, onClose }) => {
     whoami: "Role: Recruiter | Permissions: Hire_User",
     about: "Rodrigo Barbosa: Engineering Student, Creative Developer.",
     skills: "Core: Java, Python, C, MIPS Assembly. Web: React, Next.js. Tools: Docker, Git.",
-    projects: "Check the UI for full details. Top picks: Portfolio, Nexus, Neon Frames.",
+    projects: "Check the UI for full details. Top picks: UPT Event Manager",
     contact: "Email: rb6544758@gmail.com | LinkedIn: /in/rodrigo-barbosa",
     exit: "Terminating session..."
   };
@@ -480,7 +498,6 @@ const HomeView = ({ onOpenTerminal, onSelectProject }) => {
               <p className="text-green-400 font-mono mb-6 text-sm tracking-widest uppercase">Hello, World</p>
               
               <div className="overflow-hidden mb-6">
-                {/* CORREÇÃO CRÍTICA: Título estático para não causar conflito visual/crash */}
                 <motion.h1 
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -572,11 +589,15 @@ const HomeView = ({ onOpenTerminal, onSelectProject }) => {
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-500/50 to-transparent opacity-50" />
           <h2 className="text-4xl font-bold text-white mb-6 tracking-tight">Ready to collaborate?</h2>
           <p className="text-gray-400 mb-8 max-w-lg mx-auto">Let's build something extraordinary together.</p>
-          <div className="flex justify-center gap-6 mt-8">
-             <a href="mailto:rb6544758@gmail.com" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Mail size={24} /></a>
-             <a href="https://github.com/barbosaz1" target="_blank" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Github size={24} /></a>
-             <a href="https://www.linkedin.com/in/rodrigo-barbosa-1243b1397" target="_blank" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Linkedin size={24} /></a>
-             <a href="/CV - Rodrigo Barbosa.pdf" download className="p-4 bg-green-600 rounded-full hover:bg-green-500 hover:scale-110 transition-all text-black shadow-lg shadow-green-900/20" title="Download CV"><Download size={24} /></a>
+          <div className="flex flex-col md:flex-row justify-center gap-6 mt-8 items-center">
+             <div className="flex gap-6">
+                <a href="mailto:rb6544758@gmail.com" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Mail size={24} /></a>
+                <a href="https://github.com/barbosaz1" target="_blank" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Github size={24} /></a>
+                <a href="https://www.linkedin.com/in/rodrigo-barbosa-1243b1397" target="_blank" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Linkedin size={24} /></a>
+             </div>
+             <a href="/resume.pdf" download className="p-4 bg-green-600 rounded-full hover:bg-green-500 hover:scale-110 transition-all text-black shadow-lg shadow-green-900/20 flex items-center gap-2 font-bold" title="Download CV">
+               <Download size={24} /> <span>Download CV</span>
+             </a>
           </div>
         </div>
       </section>
@@ -587,7 +608,6 @@ const HomeView = ({ onOpenTerminal, onSelectProject }) => {
 const ProjectDetailsView = ({ project, onBack }) => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
-  // --- CORREÇÃO DE SEGURANÇA: Se o projeto não existir (erro de timing), não renderiza nada ---
   if (!project) return null;
 
   return (
@@ -601,12 +621,12 @@ const ProjectDetailsView = ({ project, onBack }) => {
       </button>
 
       <motion.div layoutId={`card-container-${project.id}`} className="bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden mb-12 relative group">
-        <div className="h-[400px] relative">
+        <div className="h-[250px] md:h-[400px] relative">
           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-90 z-10" />
           <motion.img layoutId={`card-image-${project.id}`} src={project.image} alt={project.title} className="w-full h-full object-cover" />
-          <div className="absolute bottom-0 left-0 p-8 md:p-12 z-20">
-             <motion.h1 layoutId={`card-title-${project.id}`} className="text-4xl md:text-6xl font-black text-white mb-2">{project.title}</motion.h1>
-             <p className="text-xl text-green-400 font-mono">{project.subtitle}</p>
+          <div className="absolute bottom-0 left-0 p-6 md:p-12 z-20">
+             <motion.h1 layoutId={`card-title-${project.id}`} className="text-3xl md:text-6xl font-black text-white mb-2">{project.title}</motion.h1>
+             <p className="text-lg md:text-xl text-green-400 font-mono">{project.subtitle}</p>
           </div>
         </div>
       </motion.div>
@@ -653,10 +673,8 @@ export default function Portfolio() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // --- ATIVA O TÍTULO ANIMADO EM LOOP (Suave) ---
   useTypewriterTitleLoop("Hi, I am Rodrigo 👋🏻");
 
-  // --- HISTORY API HANDLING (BACK BUTTON) ---
   useEffect(() => {
     const handlePopState = (event) => {
       if (event.state?.view === 'project') {
@@ -693,7 +711,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-green-500/30 font-sans relative">
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-green-500/30 font-sans relative overflow-x-hidden">
       <div className="fixed inset-0 pointer-events-none" 
         style={{ 
           backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)`,
@@ -713,7 +731,7 @@ export default function Portfolio() {
           </div>
 
           {currentView === 'home' ? (
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-4 md:gap-8">
               <div className="hidden md:flex gap-8 text-sm font-mono text-gray-400">
                 {['About', 'Skills', 'Projects', 'Contact'].map((item, i) => (
                   <a key={item} href={`#${item.toLowerCase()}`} onClick={(e) => { e.preventDefault(); document.getElementById(item.toLowerCase())?.scrollIntoView({behavior:'smooth'}) }} className="hover:text-green-400 transition-colors">
@@ -721,7 +739,7 @@ export default function Portfolio() {
                   </a>
                 ))}
               </div>
-              <a href="/CV - Rodrigo Barbosa.pdf" download className="hidden md:flex items-center gap-2 text-xs font-mono text-green-400 border border-green-500/30 px-3 py-1.5 rounded hover:bg-green-500/10 transition-colors">
+              <a href="/resume.pdf" download className="hidden md:flex items-center gap-2 text-xs font-mono text-green-400 border border-green-500/30 px-3 py-1.5 rounded hover:bg-green-500/10 transition-colors">
                 <Download size={14} /> CV
               </a>
             </div>

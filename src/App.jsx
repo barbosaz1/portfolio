@@ -289,7 +289,7 @@ const HeroHUD = () => {
   );
 };
 
-// --- SNAKE GAME (ADAPTADO PARA MOBILE) ---
+// --- SNAKE GAME (CORRIGIDO: BOX-CONTENT + OVERFLOW HIDDEN) ---
 const SnakeGame = ({ onClose }) => {
   const GRID_SIZE = 20; const CELL_SIZE = 20; const SPEED = 100;
   const [snake, setSnake] = useState([[5, 5], [5, 4], [5, 3]]);
@@ -317,11 +317,14 @@ const SnakeGame = ({ onClose }) => {
       setSnake(prev => {
         const head = [prev[0][0], prev[0][1]];
         switch (direction) { case "RIGHT": head[1]++; break; case "LEFT": head[1]--; break; case "UP": head[0]--; break; case "DOWN": head[0]++; break; }
+        
+        // Verifica colisão
         if (head[0] < 0 || head[0] >= GRID_SIZE || head[1] < 0 || head[1] >= GRID_SIZE || prev.some(s => s[0] === head[0] && s[1] === head[1])) {
           setGameOver(true);
           if (score > highScore) { setHighScore(score); localStorage.setItem("snakeHighScore", score.toString()); }
           return prev;
         }
+        
         const newSnake = [head, ...prev];
         if (head[0] === food[0] && head[1] === food[1]) { setScore(s => s + 10); generateFood(); } else { newSnake.pop(); }
         return newSnake;
@@ -345,7 +348,6 @@ const SnakeGame = ({ onClose }) => {
     window.addEventListener("keydown", handleKey); gameRef.current?.focus(); return () => window.removeEventListener("keydown", handleKey);
   }, [direction, onClose]);
 
-  // Controlo Mobile (Botões)
   const handleMobileControl = (dir) => {
     if (dir === "UP" && direction !== "DOWN") setDirection("UP");
     if (dir === "DOWN" && direction !== "UP") setDirection("DOWN");
@@ -354,22 +356,24 @@ const SnakeGame = ({ onClose }) => {
   };
 
   return (
-    <div ref={gameRef} tabIndex={0} className="flex flex-col items-center justify-center h-full bg-black/90 font-mono outline-none relative p-4">
-      <div className="mb-4 text-center"><h3 className="text-green-500 font-bold">SNAKE.EXE</h3><div className="text-sm">Score: {score} | Best: {highScore}</div></div>
-      <div className="relative bg-[#111] border border-green-500/30" style={{ width: GRID_SIZE*CELL_SIZE, height: GRID_SIZE*CELL_SIZE }}>
+    <div ref={gameRef} tabIndex={0} className="flex flex-col items-center justify-start md:justify-center h-full bg-black/90 font-mono outline-none relative p-4 overflow-y-auto no-scrollbar pt-8 md:pt-0">
+      <div className="mb-2 md:mb-4 text-center mt-4 md:mt-0"><h3 className="text-green-500 font-bold">SNAKE.EXE</h3><div className="text-sm">Score: {score} | Best: {highScore}</div></div>
+      
+      {/* GAME BOARD CORRIGIDO: box-content para a borda ficar fora, e z-index baixo */}
+      <div className="relative bg-[#111] border border-green-500/30 transform scale-[0.75] sm:scale-100 origin-top shadow-2xl shadow-green-900/20 overflow-hidden z-10 box-content mx-auto" style={{ width: GRID_SIZE*CELL_SIZE, height: GRID_SIZE*CELL_SIZE }}>
         {snake.map((s, i) => (<div key={i} className="absolute bg-green-500" style={{ top: s[0]*CELL_SIZE, left: s[1]*CELL_SIZE, width: CELL_SIZE-1, height: CELL_SIZE-1 }} />))}
         <div className="absolute bg-red-500 rounded-full" style={{ top: food[0]*CELL_SIZE, left: food[1]*CELL_SIZE, width: CELL_SIZE-2, height: CELL_SIZE-2, margin: 1 }} />
-        {gameOver && <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center z-10"><span className="text-red-500 font-bold mb-2">GAME OVER</span><button onClick={() => {setSnake([[5,5],[5,4],[5,3]]); setScore(0); setGameOver(false); setDirection("RIGHT");}} className="px-4 py-2 bg-green-600 rounded text-black font-bold">RETRY</button><button onClick={onClose} className="mt-2 text-xs text-gray-500">EXIT</button></div>}
+        {gameOver && <div className="absolute inset-0 bg-black/80 flex flex-col items-center justify-center z-20"><span className="text-red-500 font-bold mb-2">GAME OVER</span><button onClick={() => {setSnake([[5,5],[5,4],[5,3]]); setScore(0); setGameOver(false); setDirection("RIGHT");}} className="px-4 py-2 bg-green-600 rounded text-black font-bold">RETRY</button><button onClick={onClose} className="mt-2 text-xs text-gray-500">EXIT</button></div>}
       </div>
       
-      {/* CONTROLOS MOBILE (D-PAD) */}
-      <div className="grid grid-cols-3 gap-2 mt-6 md:hidden">
+      {/* CONTROLOS MOBILE: Z-index elevado e ajuste de margem */}
+      <div className="grid grid-cols-3 gap-2 mt-2 md:hidden relative z-50">
         <div />
-        <button onClick={() => handleMobileControl("UP")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors"><ArrowUpCircle /></button>
+        <button onClick={() => handleMobileControl("UP")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors border border-white/20"><ArrowUpCircle size={32} /></button>
         <div />
-        <button onClick={() => handleMobileControl("LEFT")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors"><ArrowLeftCircle /></button>
-        <button onClick={() => handleMobileControl("DOWN")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors"><ArrowDownCircle /></button>
-        <button onClick={() => handleMobileControl("RIGHT")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors"><ArrowRightCircle /></button>
+        <button onClick={() => handleMobileControl("LEFT")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors border border-white/20"><ArrowLeftCircle size={32} /></button>
+        <button onClick={() => handleMobileControl("DOWN")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors border border-white/20"><ArrowDownCircle size={32} /></button>
+        <button onClick={() => handleMobileControl("RIGHT")} className="p-3 bg-white/10 rounded-full active:bg-green-500 active:text-black transition-colors border border-white/20"><ArrowRightCircle size={32} /></button>
       </div>
 
       <div className="mt-4 text-xs text-gray-500 hidden md:block">WASD / Arrows to move • CTRL+C to exit</div>
@@ -595,7 +599,7 @@ const HomeView = ({ onOpenTerminal, onSelectProject }) => {
                 <a href="https://github.com/barbosaz1" target="_blank" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Github size={24} /></a>
                 <a href="https://www.linkedin.com/in/rodrigo-barbosa-1243b1397" target="_blank" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Linkedin size={24} /></a>
              </div>
-             <a href="/resume.pdf" download className="p-4 bg-green-600 rounded-full hover:bg-green-500 hover:scale-110 transition-all text-black shadow-lg shadow-green-900/20 flex items-center gap-2 font-bold" title="Download CV">
+             <a href="/CV - Rodrigo Barbosa.pdf" download className="p-4 bg-green-600 rounded-full hover:bg-green-500 hover:scale-110 transition-all text-black shadow-lg shadow-green-900/20 flex items-center gap-2 font-bold" title="Download CV">
                <Download size={24} /> <span>Download CV</span>
              </a>
           </div>

@@ -599,7 +599,7 @@ const HomeView = ({ onOpenTerminal, onSelectProject }) => {
                 <a href="https://github.com/barbosaz1" target="_blank" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Github size={24} /></a>
                 <a href="https://www.linkedin.com/in/rodrigo-barbosa-1243b1397" target="_blank" className="p-4 bg-white/5 rounded-full hover:bg-white/10 hover:scale-110 transition-all text-white"><Linkedin size={24} /></a>
              </div>
-             <a href="/resume.pdf" download className="p-4 bg-green-600 rounded-full hover:bg-green-500 hover:scale-110 transition-all text-black shadow-lg shadow-green-900/20 flex items-center gap-2 font-bold" title="Download CV">
+             <a href="/CV - Rodrigo Barbosa.pdf" download className="p-4 bg-green-600 rounded-full hover:bg-green-500 hover:scale-110 transition-all text-black shadow-lg shadow-green-900/20 flex items-center gap-2 font-bold" title="Download CV">
                <Download size={24} /> <span>Download CV</span>
              </a>
           </div>

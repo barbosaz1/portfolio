@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <filter id="blur1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="70"/>
+    </filter>
+    <filter id="blur2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#f6f5f1" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#08080a"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <circle cx="180" cy="140" r="260" fill="#7c5cff" opacity="0.35" filter="url(#blur1)"/>
+  <circle cx="1050" cy="520" r="220" fill="#4fe3c1" opacity="0.25" filter="url(#blur2)"/>
+
+  <circle cx="120" cy="120" r="5" fill="#7c5cff"/>
+  <text x="140" y="128" font-family="Menlo, Consolas, monospace" font-size="20" letter-spacing="4" fill="#a1a1aa">WEB DEVELOPER &amp; FRONTEND ENGINEER</text>
+
+  <text x="118" y="270" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="700" fill="#f6f5f1">Rodrigo Barbosa</text>
+  <text x="118" y="360" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="80" fill="#a996ff">Web Development.</text>
+
+  <text x="118" y="440" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#a1a1aa">Fast, modern, meticulously crafted websites.</text>
+</svg>

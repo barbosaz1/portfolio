@@ -12,6 +12,18 @@ export const projects: Project[] = [
     coverImage: "/images/projects/bela-flor-cleaning/cover.png",
     coverAlt:
       "Bela Flor Cleaning homepage showing a softly lit living room with the headline Elegance in every detail.",
+    detailImages: [
+      {
+        src: "/images/projects/bela-flor-cleaning/detail-1.png",
+        alt: "Bela Flor Cleaning services section with editorial photography and service cards.",
+        position: "object-top",
+      },
+      {
+        src: "/images/projects/bela-flor-cleaning/detail-2.png",
+        alt: "Bela Flor Cleaning consultation booking screen next to a luxury bathroom photograph.",
+        position: "object-left",
+      },
+    ],
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
     accent: {
       primary: "#D98C73",
@@ -47,6 +59,18 @@ export const projects: Project[] = [
     coverImage: "/images/projects/rb-investimentos/cover.png",
     coverAlt:
       "R&B Investimentos homepage with a large R&B logotype on a dark background and the headline Assets that appreciate with vision and rigor.",
+    detailImages: [
+      {
+        src: "/images/projects/rb-investimentos/detail-1.png",
+        alt: "R&B Investimentos services grid showcasing the four investment offerings with property photography.",
+        position: "object-top",
+      },
+      {
+        src: "/images/projects/rb-investimentos/detail-2.png",
+        alt: "R&B Investimentos contact section and footer with brand navigation.",
+        position: "object-bottom",
+      },
+    ],
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Vercel"],
     accent: {
       primary: "#4C86F7",

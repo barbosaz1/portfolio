@@ -220,24 +220,20 @@ export default async function ProjectPage({
 
         <section className="container-premium pb-24 md:pb-32">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border-strong">
-              <Image
-                src={project.coverImage}
-                alt={`${project.name} — interface detail`}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="scale-[1.8] object-cover object-left-top"
-              />
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border-strong">
-              <Image
-                src={project.coverImage}
-                alt={`${project.name} — typography and layout detail`}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="scale-[1.8] object-cover object-right-bottom"
-              />
-            </div>
+            {project.detailImages.map((detail) => (
+              <div
+                key={detail.src}
+                className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border-strong"
+              >
+                <Image
+                  src={detail.src}
+                  alt={detail.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={`object-cover ${detail.position ?? "object-center"}`}
+                />
+              </div>
+            ))}
           </div>
         </section>
 

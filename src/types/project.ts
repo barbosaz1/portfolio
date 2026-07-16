@@ -4,6 +4,12 @@ export type ProjectAccent = {
   bg: string;
 };
 
+export type ProjectDetailImage = {
+  src: string;
+  alt: string;
+  position?: string;
+};
+
 export type Project = {
   slug: string;
   name: string;
@@ -13,6 +19,7 @@ export type Project = {
   liveUrl: string;
   coverImage: string;
   coverAlt: string;
+  detailImages: [ProjectDetailImage, ProjectDetailImage];
   tech: string[];
   accent: ProjectAccent;
   overview: string;

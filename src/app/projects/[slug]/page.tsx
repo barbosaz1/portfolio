@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
-import { BrowserFrame } from "@/components/ui/BrowserFrame";
+import { ProjectMedia } from "@/components/project/ProjectMedia";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { RevealText } from "@/components/ui/RevealText";
@@ -152,90 +151,63 @@ export default async function ProjectPage({
           </div>
         </section>
 
-        <section className="container-premium">
-          <BrowserFrame url={liveHost} className="mx-auto max-w-5xl">
-            <div className="relative aspect-[1200/798] w-full">
-              <Image
-                src={project.coverImage}
-                alt={project.coverAlt}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 1024px"
-                className="object-cover object-top"
-              />
-            </div>
-          </BrowserFrame>
-        </section>
+        <ProjectMedia
+          coverImage={project.coverImage}
+          coverAlt={project.coverAlt}
+          liveHost={liveHost}
+          detailImages={project.detailImages}
+        >
+          <section className="container-premium py-24 md:py-32">
+            <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.4fr]">
+              <div>
+                <h2 className="text-2xl font-medium text-fg">Overview</h2>
+                <p className="mt-4 text-fg-muted">{project.overview}</p>
 
-        <section className="container-premium py-24 md:py-32">
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.4fr]">
-            <div>
-              <h2 className="text-2xl font-medium text-fg">Overview</h2>
-              <p className="mt-4 text-fg-muted">{project.overview}</p>
-
-              <h3 className="mt-10 text-sm font-mono uppercase tracking-[0.2em] text-fg-subtle">
-                Objectives
-              </h3>
-              <ul className="mt-4 flex flex-col gap-3">
-                {project.objectives.map((objective) => (
-                  <li key={objective} className="flex items-start gap-3 text-fg-muted">
-                    <Check
-                      className="mt-1 h-4 w-4 flex-shrink-0"
-                      style={{ color: "var(--case-accent)" }}
-                    />
-                    {objective}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-medium text-fg">Process</h2>
-              <div className="mt-4 flex flex-col gap-6">
-                {project.process.map((paragraph, index) => (
-                  <div key={index} className="flex gap-4">
-                    <span className="font-mono text-sm text-fg-subtle">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <p className="text-fg-muted">{paragraph}</p>
-                  </div>
-                ))}
+                <h3 className="mt-10 text-sm font-mono uppercase tracking-[0.2em] text-fg-subtle">
+                  Objectives
+                </h3>
+                <ul className="mt-4 flex flex-col gap-3">
+                  {project.objectives.map((objective) => (
+                    <li key={objective} className="flex items-start gap-3 text-fg-muted">
+                      <Check
+                        className="mt-1 h-4 w-4 flex-shrink-0"
+                        style={{ color: "var(--case-accent)" }}
+                      />
+                      {objective}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <h2 className="mt-12 text-2xl font-medium text-fg">Results</h2>
-              <ul className="mt-4 flex flex-col gap-3">
-                {project.results.map((result) => (
-                  <li key={result} className="flex items-start gap-3 text-fg-muted">
-                    <Check
-                      className="mt-1 h-4 w-4 flex-shrink-0"
-                      style={{ color: "var(--case-accent)" }}
-                    />
-                    {result}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
+              <div>
+                <h2 className="text-2xl font-medium text-fg">Process</h2>
+                <div className="mt-4 flex flex-col gap-6">
+                  {project.process.map((paragraph, index) => (
+                    <div key={index} className="flex gap-4">
+                      <span className="font-mono text-sm text-fg-subtle">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-fg-muted">{paragraph}</p>
+                    </div>
+                  ))}
+                </div>
 
-        <section className="container-premium pb-24 md:pb-32">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {project.detailImages.map((detail) => (
-              <div
-                key={detail.src}
-                className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border-strong"
-              >
-                <Image
-                  src={detail.src}
-                  alt={detail.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className={`object-cover ${detail.position ?? "object-center"}`}
-                />
+                <h2 className="mt-12 text-2xl font-medium text-fg">Results</h2>
+                <ul className="mt-4 flex flex-col gap-3">
+                  {project.results.map((result) => (
+                    <li key={result} className="flex items-start gap-3 text-fg-muted">
+                      <Check
+                        className="mt-1 h-4 w-4 flex-shrink-0"
+                        style={{ color: "var(--case-accent)" }}
+                      />
+                      {result}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))}
-          </div>
-        </section>
+            </div>
+          </section>
+        </ProjectMedia>
 
         <section className="relative overflow-hidden border-t border-border py-24 md:py-32">
           <div className="container-premium flex flex-col items-center text-center">

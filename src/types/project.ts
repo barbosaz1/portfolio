@@ -26,4 +26,5 @@ export type Project = {
   objectives: string[];
   process: string[];
   results: string[];
+  learnings: string;
 };

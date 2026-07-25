@@ -47,6 +47,8 @@ export const projects: Project[] = [
       "A clear, low-friction path from homepage to quote request.",
       "A visual identity that reads as premium and trustworthy at a glance — the core goal behind the project.",
     ],
+    learnings:
+      "The biggest lesson from Bela Flor wasn't technical — it was learning to let restraint do the selling. Every instinct says 'add more proof, more copy, more convincing.' The version that actually converts is the one that trusts good photography and confident whitespace to do that work instead.",
   },
   {
     slug: "rb-investimentos",
@@ -94,6 +96,8 @@ export const projects: Project[] = [
       "A distinct, memorable visual identity that stands apart from typical real-estate sites.",
       "A structure built to scale as the company adds more projects and case studies over time.",
     ],
+    learnings:
+      "R&B pushed me to trust scale and negative space as the entire first impression, with almost no supporting photography. It's a useful discipline: when you can't lean on imagery, typography and rhythm have to carry the whole argument on their own.",
   },
 ];
 

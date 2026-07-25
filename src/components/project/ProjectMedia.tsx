@@ -63,7 +63,10 @@ export function ProjectMedia({
       {children}
 
       <section className="container-premium pb-24 md:pb-32">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <h2 className="mb-10 font-mono text-xs uppercase tracking-[0.2em] text-fg-subtle">
+          Gallery
+        </h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-5 md:gap-8">
           {detailImages.map((detail, i) => (
             <button
               key={detail.src}
@@ -71,7 +74,9 @@ export function ProjectMedia({
               data-cursor="hover"
               onClick={() => setActiveIndex(i + 1)}
               aria-label={`View larger: ${detail.alt}`}
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-border-strong text-left"
+              className={`group relative aspect-[4/3] overflow-hidden rounded-2xl border border-border-strong text-left ${
+                i === 0 ? "md:col-span-3" : "md:col-span-2 md:mt-16"
+              }`}
             >
               <Image
                 src={detail.src}

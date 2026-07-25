@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { ProjectMedia } from "@/components/project/ProjectMedia";
+import { NextProjectBand } from "@/components/project/NextProjectBand";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { RevealText } from "@/components/ui/RevealText";
@@ -30,7 +31,7 @@ export async function generateMetadata({
     title: `${project.name} — Case Study`,
     description: project.summary,
     alternates: {
-      canonical: `${siteConfig.url}/projects/${project.slug}`,
+      canonical: `${siteConfig.url}/work/${project.slug}`,
     },
     openGraph: {
       title: `${project.name} — Case Study | ${siteConfig.name}`,
@@ -63,7 +64,7 @@ export default async function ProjectPage({
     "@type": "CreativeWork",
     name: project.name,
     description: project.summary,
-    url: `${siteConfig.url}/projects/${project.slug}`,
+    url: `${siteConfig.url}/work/${project.slug}`,
     image: `${siteConfig.url}${project.coverImage}`,
     creator: {
       "@type": "Person",
@@ -79,7 +80,7 @@ export default async function ProjectPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
       />
-      <Header variant="minimal" />
+      <Header />
       <main
         className="relative"
         style={
@@ -100,12 +101,12 @@ export default async function ProjectPage({
 
           <div className="container-premium relative z-10">
             <Link
-              href="/#projects"
+              href="/work"
               data-cursor="hover"
               className="inline-flex items-center gap-2 text-sm text-fg-muted transition-colors hover:text-fg"
             >
               <ArrowLeft className="h-4 w-4" />
-              All Projects
+              All Work
             </Link>
 
             <div className="mt-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-fg-subtle">
@@ -137,17 +138,6 @@ export default async function ProjectPage({
                 message={`Hi Rodrigo, I saw the ${project.name} case study and I'd like to talk about a website project.`}
               />
             </div>
-
-            <div className="mt-8 flex flex-wrap gap-2">
-              {project.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-border px-3 py-1 font-mono text-[11px] text-fg-subtle"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -157,6 +147,24 @@ export default async function ProjectPage({
           liveHost={liveHost}
           detailImages={project.detailImages}
         >
+          <section className="container-premium pt-24 md:pt-32">
+            <div className="flex flex-col gap-4 border-b border-border pb-10 sm:flex-row sm:items-center sm:justify-between">
+              <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-fg-subtle">
+                Stack
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-border-strong px-3.5 py-1.5 text-sm text-fg"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </section>
+
           <section className="container-premium py-24 md:py-32">
             <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.4fr]">
               <div>
@@ -206,6 +214,15 @@ export default async function ProjectPage({
                 </ul>
               </div>
             </div>
+
+            <div className="mt-20 max-w-3xl border-t border-border pt-16">
+              <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-fg-subtle">
+                Learnings
+              </h2>
+              <p className="font-display mt-5 text-2xl italic leading-snug text-fg md:text-3xl">
+                {project.learnings}
+              </p>
+            </div>
           </section>
         </ProjectMedia>
 
@@ -223,15 +240,11 @@ export default async function ProjectPage({
                 label="Chat on WhatsApp"
                 message={`Hi Rodrigo, I saw the ${project.name} case study and I'd like to talk about a website project.`}
               />
-              {otherProject && (
-                <MagneticButton href={`/projects/${otherProject.slug}`} variant="secondary">
-                  Next Case Study
-                  <ArrowUpRight className="h-4 w-4" />
-                </MagneticButton>
-              )}
             </div>
           </div>
         </section>
+
+        {otherProject && <NextProjectBand project={otherProject} />}
       </main>
       <Footer />
       <FloatingWhatsApp />

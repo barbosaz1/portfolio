@@ -1,0 +1,65 @@
+---
+title: "The Case for Fewer, More Deliberate Animations"
+excerpt: "Motion is the easiest way to make a site feel alive — and the easiest way to make it feel exhausting. The difference is almost never quantity."
+date: "2026-04-22"
+category: "Craft"
+---
+
+Motion is seductive to build. It's one of the few areas of frontend work where the
+effort-to-delight ratio can feel almost unfair — a single `whileInView` fade can make
+a static page feel considered in about ten minutes. So it's tempting to keep going.
+Fade this in, slide that up, stagger this list, parallax that image. Each one, in
+isolation, is a nice touch.
+
+Together, they're often the reason a site feels tiring to scroll through.
+
+## Every animation is a small tax on attention
+
+An animation isn't free just because it's smooth. It asks the visitor's eye to wait —
+for the fade to finish, for the stagger to catch up, for the parallax to settle —
+before they can actually read what's in front of them. One or two of these per screen
+is texture. Ten is friction wearing the costume of polish.
+
+The question I try to ask before adding any motion isn't _"would this look nice?"_ —
+almost everything looks nice in isolation. It's:
+
+- Does this animation help the visitor understand something — hierarchy, order,
+  cause and effect?
+- Would removing it make the page feel broken, or just calmer?
+- Is this the fourth or fifth similar effect on this screen already?
+
+If an animation doesn't clear that bar, it's decoration, and decoration should be rare
+enough to still be noticed.
+
+## Reuse the grammar, vary the accent
+
+The trick to a site that feels alive without feeling busy is having a small,
+consistent motion _grammar_ — the same easing curve, similar durations, a shared logic
+for how things enter — and then spending your genuinely novel motion ideas sparingly,
+on the one or two moments that deserve them.
+
+```tsx
+const ease = [0.16, 1, 0.3, 1] as const;
+
+export const fadeUp = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-10% 0px" },
+  transition: { duration: 0.7, ease },
+};
+```
+
+That one object, reused everywhere ordinary content needs to enter, does more for
+perceived quality than ten different bespoke animations competing for attention. It
+reads as intentional precisely because it repeats. The bespoke motion — a scroll-tied
+progress line, a custom cursor, a hero parallax — means more, not less, because it's
+rare.
+
+> If everything on the page is trying to impress you, nothing is.
+
+## Restraint is the harder skill
+
+Building an elaborate animation is, in a strange way, easier than deciding not to.
+Restraint requires actually knowing which single moment on a page deserves the
+audience's full attention — and having the discipline to let everything else be quiet
+enough to earn it. That's the actual craft. The animation is just the easy part.

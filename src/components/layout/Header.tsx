@@ -1,28 +1,36 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useLenis } from "lenis/react";
 import { cn } from "@/lib/utils";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { MenuOverlay } from "./MenuOverlay";
 
-const navLinks = [
-  { label: "About", href: "/#about" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Services", href: "/#services" },
-  { label: "Process", href: "/#process" },
-  { label: "Contact", href: "/#contact" },
-];
-
-export function Header({ variant = "full" }: { variant?: "full" | "minimal" }) {
+export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { scrollY } = useScroll();
+  const lenis = useLenis();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 24);
   });
+
+  useEffect(() => {
+    if (open) {
+      lenis?.stop();
+      document.body.style.overflow = "hidden";
+    } else {
+      lenis?.start();
+      document.body.style.overflow = "";
+    }
+    return () => {
+      lenis?.start();
+      document.body.style.overflow = "";
+    };
+  }, [open, lenis]);
 
   return (
     <>
@@ -31,88 +39,59 @@ export function Header({ variant = "full" }: { variant?: "full" | "minimal" }) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 2.0 }}
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
-          scrolled ? "border-b border-border bg-bg/75 backdrop-blur-md" : "bg-transparent",
+          "fixed inset-x-0 top-0 z-[9991] transition-colors duration-500",
+          scrolled || open
+            ? "border-b border-border bg-bg/75 backdrop-blur-md"
+            : "bg-transparent",
         )}
       >
         <div className="container-premium flex h-20 items-center justify-between">
-          <Link href="/" data-cursor="hover" className="text-xl tracking-tight text-fg">
+          <Link
+            href="/"
+            data-cursor="hover"
+            onClick={() => setOpen(false)}
+            className="text-xl tracking-tight text-fg"
+          >
             Rodrigo <span className="font-display italic text-accent-soft">Barbosa</span>
           </Link>
 
-          {variant === "full" && (
-            <nav className="hidden items-center gap-9 md:flex">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  data-cursor="hover"
-                  className="text-sm text-fg-muted transition-colors duration-300 hover:text-fg"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          )}
-
           <div className="flex items-center gap-3">
-            {variant === "minimal" && (
-              <Link
-                href="/#projects"
-                data-cursor="hover"
-                className="hidden text-sm text-fg-muted transition-colors hover:text-fg sm:inline"
-              >
-                ← All Projects
-              </Link>
-            )}
             <WhatsAppButton
               label="WhatsApp"
               variant="secondary"
               className="hidden !px-5 !py-2.5 text-xs sm:inline-flex"
             />
-            {variant === "full" && (
-              <button
-                type="button"
-                data-cursor="hover"
-                aria-label="Toggle menu"
-                onClick={() => setOpen((v) => !v)}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-border-strong text-fg md:hidden"
-              >
-                {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-              </button>
-            )}
+            <button
+              type="button"
+              data-cursor="hover"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="flex h-10 items-center gap-2.5 rounded-full border border-border-strong px-4 text-fg"
+            >
+              <span className="hidden font-mono text-xs uppercase tracking-[0.15em] sm:inline">
+                {open ? "Close" : "Menu"}
+              </span>
+              <span className="relative flex h-3 w-4 flex-shrink-0 flex-col justify-between">
+                <span
+                  className={cn(
+                    "h-px w-full bg-fg transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                    open && "translate-y-[5.5px] rotate-45",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "h-px w-full bg-fg transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                    open && "-translate-y-[5.5px] -rotate-45",
+                  )}
+                />
+              </span>
+            </button>
           </div>
         </div>
       </motion.header>
 
-      <AnimatePresence>
-        {open && variant === "full" && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-bg/98 backdrop-blur-xl md:hidden"
-          >
-            {navLinks.map((link, i) => (
-              <motion.div
-                key={link.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.08 * i, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-3xl text-fg"
-                >
-                  {link.label}
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <MenuOverlay open={open} onClose={() => setOpen(false)} />
     </>
   );
 }

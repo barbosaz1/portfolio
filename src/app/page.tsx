@@ -2,15 +2,13 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Projects } from "@/components/sections/Projects";
-import { Services } from "@/components/sections/Services";
-import { WhyWorkWithMe } from "@/components/sections/WhyWorkWithMe";
+import { Manifesto } from "@/components/sections/Manifesto";
+import { FeaturedWork } from "@/components/sections/FeaturedWork";
+import { Philosophy } from "@/components/sections/Philosophy";
 import { Process } from "@/components/sections/Process";
 import { TechStack } from "@/components/sections/TechStack";
-import { Stats } from "@/components/sections/Stats";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { Contact } from "@/components/sections/Contact";
+import { JournalPreview } from "@/components/sections/JournalPreview";
+import { ClosingCTA } from "@/components/sections/ClosingCTA";
 
 export default function Home() {
   return (
@@ -18,15 +16,13 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Projects />
-        <Services />
-        <WhyWorkWithMe />
+        <Manifesto />
+        <FeaturedWork />
+        <Philosophy />
         <Process />
         <TechStack />
-        <Stats />
-        <Testimonials />
-        <Contact />
+        <JournalPreview />
+        <ClosingCTA />
       </main>
       <Footer />
       <FloatingWhatsApp />

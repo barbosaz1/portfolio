@@ -97,8 +97,8 @@ export function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 1.45 }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <MagneticButton href="#projects" variant="primary">
-              View Projects
+            <MagneticButton href="#work" variant="primary">
+              View Work
             </MagneticButton>
             <WhatsAppButton label="Chat on WhatsApp" variant="secondary" />
           </motion.div>

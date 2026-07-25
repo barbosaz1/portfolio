@@ -27,4 +27,10 @@ export type Project = {
   process: string[];
   results: string[];
   learnings: string;
+  /** Overrides for projects that aren't a client website case study (e.g. open-source tools). */
+  liveUrlLabel?: string;
+  ctaHeading?: string;
+  ctaBody?: string;
+  ctaButtonLabel?: string;
+  ctaMessage?: string;
 };

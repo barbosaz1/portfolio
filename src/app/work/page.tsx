@@ -5,7 +5,6 @@ import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { Capabilities } from "@/components/sections/Capabilities";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { GridNoiseBackground } from "@/components/ui/GridNoiseBackground";
 import { projects } from "@/lib/projects-data";
 import { siteConfig } from "@/lib/site-config";
@@ -44,7 +43,6 @@ export default function WorkPage() {
         </section>
 
         <Capabilities />
-        <Testimonials />
       </main>
       <Footer />
       <FloatingWhatsApp />

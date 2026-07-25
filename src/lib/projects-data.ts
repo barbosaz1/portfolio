@@ -99,6 +99,60 @@ export const projects: Project[] = [
     learnings:
       "R&B pushed me to trust scale and negative space as the entire first impression, with almost no supporting photography. It's a useful discipline: when you can't lean on imagery, typography and rhythm have to carry the whole argument on their own.",
   },
+  {
+    slug: "xubz-theme",
+    name: "Xubz Dark",
+    category: "Open Source / Developer Tool",
+    tagline: "A VS Code theme where every color has a job.",
+    summary:
+      "A premium dark theme for Visual Studio Code built for long coding sessions — a full design system across the editor, sidebar, terminal, debugger, and Git, where color is used as a semantic signal instead of decoration.",
+    liveUrl: "https://github.com/barbosaz1/xubz-theme",
+    liveUrlLabel: "View on GitHub",
+    coverImage: "/images/projects/xubz-theme/cover.png",
+    coverAlt:
+      "Xubz Dark theme applied in VS Code, showing syntax-highlighted TypeScript with cyan keywords, green functions, and gold classes.",
+    detailImages: [
+      {
+        src: "/images/projects/xubz-theme/detail-1.png",
+        alt: "Xubz Dark theme applied to a Python file, showing decorators, dataclasses, and comments.",
+        position: "object-top",
+      },
+      {
+        src: "/images/projects/xubz-theme/detail-2.png",
+        alt: "Xubz Dark theme applied to a Rust file, showing macros, lifetimes, and structs.",
+        position: "object-top",
+      },
+    ],
+    tech: ["VS Code API", "JSON", "TextMate Grammars", "Design Systems"],
+    accent: {
+      primary: "#7CF7B8",
+      soft: "#CFF9E4",
+      bg: "#111418",
+    },
+    overview:
+      "Xubz Dark started from a simple frustration: most dark themes pick a color palette and apply it uniformly, so keywords, types, and errors all fight for the same visual weight. The goal was a theme that behaves like a design system — where color is assigned by semantic importance, not by category alone, and where red is reserved exclusively for real problems (errors, diagnostics, breakpoints) so no keyword or type ever looks broken.",
+    objectives: [
+      "Build a genuinely distinguishable syntax palette that holds up during 12+ hour sessions",
+      "Reserve red exclusively for errors and diagnostics — never for keywords or types",
+      "Redesign every VS Code surface (sidebar, tabs, terminal, debugger, Git, IntelliSense) as one coherent system, not just the editor",
+    ],
+    process: [
+      "Defined a semantic color hierarchy first — keywords, functions, classes, types, and constants each got a distinct, reasoned color — before touching a single line of the VS Code theme schema.",
+      "Wrote the full workbench color set (550+ keys) and TextMate/semantic token rules by hand, covering TypeScript, Python, Rust, Go, C#, Java, HTML/CSS, and more.",
+      "Packaged it as a real VS Code extension with `vsce`, tested it on real multi-language code, and rendered accurate preview screenshots straight from the theme's own color values.",
+    ],
+    results: [
+      "A complete, installable VS Code theme extension published on GitHub with a tagged v1.0.0 release.",
+      "A consistent visual system across every VS Code surface, not just editor syntax highlighting.",
+      "A documented, reusable color reference other developers can extend or fork.",
+    ],
+    learnings:
+      "Designing a theme forces a different kind of discipline than designing a UI: every decision has to survive being stared at for hours without becoming noise. The hardest part wasn't picking pretty colors — it was saying no to color wherever it didn't carry meaning.",
+    ctaHeading: "Curious about this project?",
+    ctaBody: "I build tools and interfaces with the same care I put into client websites. Let's talk.",
+    ctaButtonLabel: "Chat About This Project",
+    ctaMessage: "Hi Rodrigo, I saw the Xubz Dark theme case study and I'd like to talk about a project.",
+  },
 ];
 
 export function getProjectBySlug(slug: string) {

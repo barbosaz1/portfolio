@@ -129,13 +129,16 @@ export default async function ProjectPage({
 
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <MagneticButton href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                Visit Live Site
+                {project.liveUrlLabel ?? "Visit Live Site"}
                 <ArrowUpRight className="h-4 w-4" />
               </MagneticButton>
               <WhatsAppButton
                 label="Discuss a Project Like This"
                 variant="secondary"
-                message={`Hi Rodrigo, I saw the ${project.name} case study and I'd like to talk about a website project.`}
+                message={
+                  project.ctaMessage ??
+                  `Hi Rodrigo, I saw the ${project.name} case study and I'd like to talk about a website project.`
+                }
               />
             </div>
           </div>
@@ -229,16 +232,19 @@ export default async function ProjectPage({
         <section className="relative overflow-hidden border-t border-border py-24 md:py-32">
           <div className="container-premium flex flex-col items-center text-center">
             <h2 className="max-w-2xl text-3xl font-medium leading-tight text-fg md:text-4xl">
-              Want something like this for your brand?
+              {project.ctaHeading ?? "Want something like this for your brand?"}
             </h2>
             <p className="mt-4 max-w-lg text-fg-muted">
-              Every project starts with a conversation. Let&apos;s talk about what you&apos;re
-              trying to build.
+              {project.ctaBody ??
+                "Every project starts with a conversation. Let's talk about what you're trying to build."}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <WhatsAppButton
-                label="Chat on WhatsApp"
-                message={`Hi Rodrigo, I saw the ${project.name} case study and I'd like to talk about a website project.`}
+                label={project.ctaButtonLabel ?? "Chat on WhatsApp"}
+                message={
+                  project.ctaMessage ??
+                  `Hi Rodrigo, I saw the ${project.name} case study and I'd like to talk about a website project.`
+                }
               />
             </div>
           </div>

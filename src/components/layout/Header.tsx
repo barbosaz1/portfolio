@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { useLenis } from "lenis/react";
 import { cn } from "@/lib/utils";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { MenuOverlay } from "./MenuOverlay";
@@ -12,25 +11,18 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { scrollY } = useScroll();
-  const lenis = useLenis();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 24);
   });
 
   useEffect(() => {
-    if (open) {
-      lenis?.stop();
-      document.body.style.overflow = "hidden";
-    } else {
-      lenis?.start();
-      document.body.style.overflow = "";
-    }
+    if (!open) return;
+    document.body.style.overflow = "hidden";
     return () => {
-      lenis?.start();
       document.body.style.overflow = "";
     };
-  }, [open, lenis]);
+  }, [open]);
 
   return (
     <>

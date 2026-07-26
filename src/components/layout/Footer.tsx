@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { FaGithub, FaWhatsapp } from "react-icons/fa6";
 import { Mail, ArrowUp } from "lucide-react";
-import { useLenis } from "lenis/react";
 import { siteConfig } from "@/lib/site-config";
 
 const navLinks = [
@@ -20,8 +19,6 @@ const socials = [
 ];
 
 export function Footer() {
-  const lenis = useLenis();
-
   return (
     <footer className="relative border-t border-border">
       <div className="container-premium flex flex-col gap-10 py-14">
@@ -68,7 +65,7 @@ export function Footer() {
               type="button"
               data-cursor="hover"
               aria-label="Back to top"
-              onClick={() => lenis?.scrollTo(0, { duration: 1.4 })}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="ml-2 flex h-9 w-9 items-center justify-center rounded-full border border-border-strong text-fg-muted transition-colors duration-300 hover:text-fg"
             >
               <ArrowUp className="h-4 w-4" aria-hidden />

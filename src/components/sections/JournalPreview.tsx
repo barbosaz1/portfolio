@@ -10,7 +10,7 @@ export function JournalPreview() {
   if (articles.length === 0) return null;
 
   return (
-    <section id="journal" className="relative py-28 md:py-36">
+    <section id="journal" className="relative scroll-mt-24 py-28 md:py-36">
       <div className="container-premium">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading

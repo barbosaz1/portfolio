@@ -25,7 +25,7 @@ const beliefs = [
 
 export function Philosophy() {
   return (
-    <section id="philosophy" className="relative py-28 md:py-36">
+    <section id="philosophy" className="relative scroll-mt-24 py-28 md:py-36">
       <div className="container-premium">
         <SectionHeading kicker="Philosophy" title="What I believe, in practice." />
 

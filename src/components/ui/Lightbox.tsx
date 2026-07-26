@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, RotateCcw, X, ZoomIn, ZoomOut } from "lucide-react";
-import { useLenis } from "lenis/react";
 import { cn } from "@/lib/utils";
 
 export type LightboxImage = {
@@ -31,8 +30,6 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
   const [trackedSrc, setTrackedSrc] = useState(image?.src);
   const dragState = useRef({ dragging: false, startX: 0, startY: 0, originX: 0, originY: 0 });
 
-  const lenis = useLenis();
-
   // Reset zoom/pan whenever the active image changes (React-recommended
   // "adjust state during render" pattern instead of an effect).
   if (image && image.src !== trackedSrc) {
@@ -49,7 +46,6 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
   useEffect(() => {
     if (!isOpen) return;
 
-    lenis?.stop();
     document.body.style.overflow = "hidden";
 
     const handleKey = (e: KeyboardEvent) => {
@@ -63,11 +59,10 @@ export function Lightbox({ images, index, onClose, onNavigate }: LightboxProps) 
     window.addEventListener("keydown", handleKey);
 
     return () => {
-      lenis?.start();
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKey);
     };
-  }, [isOpen, index, images.length, onClose, onNavigate, lenis]);
+  }, [isOpen, index, images.length, onClose, onNavigate]);
 
   const handleWheel = (e: React.WheelEvent) => {
     e.preventDefault();

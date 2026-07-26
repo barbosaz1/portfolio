@@ -4,7 +4,6 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
-import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { CustomCursor } from "@/components/layout/CustomCursor";
 import { LoadingScreen } from "@/components/layout/LoadingScreen";
 
@@ -98,7 +97,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${instrumentSerif.variable} h-full scroll-smooth antialiased motion-reduce:scroll-auto`}
     >
       <body className="min-h-full flex flex-col bg-bg text-fg selection:bg-accent">
         <script
@@ -107,7 +106,7 @@ export default function RootLayout({
         />
         <LoadingScreen />
         <CustomCursor />
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        {children}
       </body>
     </html>
   );

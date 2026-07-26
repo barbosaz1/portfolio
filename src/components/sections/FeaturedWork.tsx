@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 export function FeaturedWork() {
   return (
-    <section id="work" className="relative py-28 md:py-36">
+    <section id="work" className="relative scroll-mt-24 py-28 md:py-36">
       <div className="container-premium">
         <SectionHeading
           kicker="Featured Work"

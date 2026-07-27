@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Writing on frontend engineering, design systems, and the craft decisions behind well-built websites.",
+    "Writing on software development, frontend engineering, and the craft decisions behind building things well.",
   alternates: {
     canonical: `${siteConfig.url}/journal`,
   },

@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { RevealText } from "@/components/ui/RevealText";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { EmailButton } from "@/components/ui/EmailButton";
 import { GridNoiseBackground } from "@/components/ui/GridNoiseBackground";
 import { GlowOrb } from "@/components/ui/GlowOrb";
 
@@ -60,13 +61,13 @@ export function Hero() {
             className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-fg-subtle"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            Web Developer &amp; Frontend Engineer
+            Software Developer
           </motion.div>
 
           <h1 className="text-[13vw] font-medium leading-[0.98] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.2rem]">
             <RevealText text="Rodrigo Barbosa" as="span" className="block text-fg" delay={0.25} />
             <RevealText
-              text="Web Development."
+              text="Software Developer."
               as="span"
               className="font-display block italic text-accent-soft"
               delay={0.55}
@@ -78,8 +79,7 @@ export function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 1.1 }}
             className="mt-7 max-w-xl text-lg text-fg md:text-xl"
           >
-            I design and build fast, meticulously crafted websites that make brands look bigger —
-            and turn visitors into clients.
+            I build software with the same care most people only spend on the parts you can see.
           </motion.p>
 
           <motion.p
@@ -87,9 +87,8 @@ export function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 1.25 }}
             className="mt-4 max-w-lg text-balance text-fg-muted"
           >
-            I help businesses, local brands, and personal brands stand out with modern,
-            high-performance websites, built with the same attention to detail you can see right
-            here.
+            Right now that shows up as fast, considered websites — but the same standard carries
+            into everything else I build, developer tools included.
           </motion.p>
 
           <motion.div
@@ -101,6 +100,7 @@ export function Hero() {
               View Work
             </MagneticButton>
             <WhatsAppButton label="Chat on WhatsApp" variant="secondary" />
+            <EmailButton label="Send Email" variant="secondary" />
           </motion.div>
         </div>
 
@@ -128,7 +128,7 @@ export function Hero() {
               <div className="absolute inset-6 rounded-[2.5rem] border border-border-strong/60 backdrop-blur-[1px]" />
               <Image
                 src="/images/rodrigo-barbosa.png"
-                alt="Portrait of Rodrigo Barbosa, Web Developer and Frontend Engineer"
+                alt="Portrait of Rodrigo Barbosa, Software Developer"
                 fill
                 priority
                 sizes="(max-width: 1024px) 60vw, 32vw"

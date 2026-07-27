@@ -160,8 +160,7 @@ export const projects: Project[] = [
     tagline: "A 49-component design system built to feel handcrafted, not generated.",
     summary:
       "A framework-agnostic UI kit shipped as native Web Components — one precision-instrument-inspired design language, a live tweakcn-style theme editor, and full documentation, usable from React, Vue, Svelte, PHP, Java, and Rust without a rewrite.",
-    liveUrl: "https://github.com/barbosaz1/xubz-ui",
-    liveUrlLabel: "View on GitHub",
+    liveUrl: "https://xubz-ui.vercel.app/",
     coverImage: "/images/projects/xubz-ui/cover.png",
     coverAlt:
       "The Xubz UI theme editor showing a full color and shape customization panel beside a live grid of components — accordions, tabs, cards, and menus — updating in real time.",

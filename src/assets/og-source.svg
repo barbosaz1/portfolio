@@ -18,10 +18,10 @@
   <circle cx="1050" cy="520" r="220" fill="#4fe3c1" opacity="0.25" filter="url(#blur2)"/>
 
   <circle cx="120" cy="120" r="5" fill="#7c5cff"/>
-  <text x="140" y="128" font-family="Menlo, Consolas, monospace" font-size="20" letter-spacing="4" fill="#a1a1aa">WEB DEVELOPER &amp; FRONTEND ENGINEER</text>
+  <text x="140" y="128" font-family="Menlo, Consolas, monospace" font-size="20" letter-spacing="4" fill="#a1a1aa">SOFTWARE DEVELOPER</text>
 
   <text x="118" y="270" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="700" fill="#f6f5f1">Rodrigo Barbosa</text>
-  <text x="118" y="360" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="80" fill="#a996ff">Web Development.</text>
+  <text x="118" y="360" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="72" fill="#a996ff">Software Developer.</text>
 
-  <text x="118" y="440" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#a1a1aa">Fast, modern, meticulously crafted websites.</text>
+  <text x="118" y="440" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#a1a1aa">Fast, meticulously crafted software.</text>
 </svg>

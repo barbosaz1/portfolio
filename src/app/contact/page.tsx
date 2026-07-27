@@ -12,7 +12,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch to talk about a website project — WhatsApp, email, or whatever's easiest for you.",
+    "Get in touch to talk about a project — WhatsApp, email, or whatever's easiest for you.",
   alternates: {
     canonical: `${siteConfig.url}/contact`,
   },
@@ -61,8 +61,8 @@ export default function ContactPage() {
             </h1>
 
             <p className="mt-7 max-w-lg text-balance text-lg text-fg-muted">
-              If you&apos;re looking for a modern, fast website built with real attention to
-              detail, let&apos;s talk. I&apos;d be glad to discuss your project.
+              If you&apos;re looking for something built with real attention to detail,
+              let&apos;s talk. I&apos;d be glad to discuss your project.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

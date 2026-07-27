@@ -40,10 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# raw source assets (already processed into public/images)
+# raw source assets (already processed into public/images or public/resume)
 /fotos
 /transferir.png
 /transferir (1).png
+/Rodrigo_Barbosa_Resume.pdf
 
 # claude code tooling (local to this machine/session)
 /.claude

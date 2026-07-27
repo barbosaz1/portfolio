@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { RevealText } from "@/components/ui/RevealText";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { ResumeButton } from "@/components/ui/ResumeButton";
 import { GridNoiseBackground } from "@/components/ui/GridNoiseBackground";
 import { siteConfig } from "@/lib/site-config";
 
@@ -68,6 +69,10 @@ export default function AboutPage() {
               I&apos;m a software developer, currently studying Computer Engineering. Web is where
               most of my published work lives right now — it&apos;s not the limit of what I build.
             </p>
+
+            <div className="mt-9">
+              <ResumeButton label="Download Resume" variant="secondary" />
+            </div>
           </div>
         </section>
 

@@ -9,6 +9,7 @@ export const siteConfig = {
     "Rodrigo Barbosa is a Software Developer building fast, meticulously crafted software — from websites to the developer tools behind them.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://0xbarbosa.dev",
   ogImage: "/og-image.png",
+  resumeUrl: "/resume/Rodrigo_Barbosa_Resume.pdf",
   email: "rb6544758@gmail.com",
   location: "Portugal",
   social: {

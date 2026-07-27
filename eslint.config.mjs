@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Separate nested project (its own repo/lint setup), not part of this app.
+    "xubz-ui/**",
   ]),
 ]);
 

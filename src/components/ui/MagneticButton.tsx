@@ -16,6 +16,7 @@ type ButtonAsLink = BaseProps & {
   href: string;
   target?: string;
   rel?: string;
+  download?: string | boolean;
   onClick?: never;
 };
 
@@ -59,6 +60,7 @@ export function MagneticButton(props: MagneticButtonProps) {
         href={props.href}
         target={props.target}
         rel={props.rel}
+        download={props.download}
         data-cursor="hover"
         className={baseClass}
         {...motionProps}

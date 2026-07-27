@@ -6,6 +6,7 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { EmailButton } from "@/components/ui/EmailButton";
+import { ResumeButton } from "@/components/ui/ResumeButton";
 import { MenuOverlay } from "./MenuOverlay";
 
 export function Header() {
@@ -49,6 +50,11 @@ export function Header() {
           </Link>
 
           <div className="flex items-center gap-3">
+            <ResumeButton
+              label="Resume"
+              variant="secondary"
+              className="hidden !px-5 !py-2.5 text-xs lg:inline-flex"
+            />
             <EmailButton
               label="Email"
               variant="secondary"

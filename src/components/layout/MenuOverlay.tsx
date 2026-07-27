@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { FaGithub, FaWhatsapp } from "react-icons/fa6";
-import { Mail } from "lucide-react";
+import { Mail, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/site-config";
 
@@ -99,6 +99,17 @@ export function MenuOverlay({ open, onClose }: { open: boolean; onClose: () => v
                 <Icon className="h-5 w-5" aria-hidden />
               </a>
             ))}
+            <a
+              href={siteConfig.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Rodrigo_Barbosa_Resume.pdf"
+              data-cursor="hover"
+              aria-label="Download Resume"
+              className="text-fg-muted transition-colors duration-300 hover:text-fg"
+            >
+              <Download className="h-5 w-5" aria-hidden />
+            </a>
           </div>
         </motion.div>
       </div>

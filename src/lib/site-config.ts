@@ -4,9 +4,9 @@ const whatsappDefaultMessage =
 
 export const siteConfig = {
   name: "Rodrigo Barbosa",
-  title: "Rodrigo Barbosa — Software Developer",
+  title: "Rodrigo Barbosa - Software Developer",
   description:
-    "Rodrigo Barbosa is a Software Developer building fast, meticulously crafted software — from websites to the developer tools behind them.",
+    "Rodrigo Barbosa is a Software Developer building fast, meticulously crafted software - from websites to the developer tools behind them.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://0xbarbosa.dev",
   ogImage: "/og-image.png",
   resumeUrl: "/resume/Rodrigo_Barbosa_Resume.pdf",

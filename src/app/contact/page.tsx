@@ -12,7 +12,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch to talk about a project — WhatsApp, email, or whatever's easiest for you.",
+    "Get in touch to talk about a project - WhatsApp, email, or whatever's easiest for you.",
   alternates: {
     canonical: `${siteConfig.url}/contact`,
   },
@@ -22,7 +22,7 @@ const steps = [
   {
     icon: Send,
     title: "You reach out",
-    text: "A message on WhatsApp or a quick email — a couple of lines about what you're trying to build is plenty to start.",
+    text: "A message on WhatsApp or a quick email - a couple of lines about what you're trying to build is plenty to start.",
   },
   {
     icon: MessageSquare,
@@ -32,7 +32,7 @@ const steps = [
   {
     icon: Search,
     title: "We figure out the fit",
-    text: "A short conversation to understand the project and whether I'm the right person for it — no pressure either way.",
+    text: "A short conversation to understand the project and whether I'm the right person for it - no pressure either way.",
   },
 ];
 

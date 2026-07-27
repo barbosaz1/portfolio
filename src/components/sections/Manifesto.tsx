@@ -24,7 +24,7 @@ export function Manifesto() {
           </h2>
 
           <p className="mt-10 max-w-xl text-lg text-fg-muted md:text-xl">
-            Every project starts by removing what doesn&apos;t need to be there — then
+            Every project starts by removing what doesn&apos;t need to be there - then
             rebuilding what&apos;s left until it feels inevitable.
           </p>
         </div>

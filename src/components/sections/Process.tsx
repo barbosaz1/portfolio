@@ -26,7 +26,7 @@ const steps = [
   },
   {
     title: "Development",
-    description: "The design comes to life in code — fast, responsive, and built to last.",
+    description: "The design comes to life in code - fast, responsive, and built to last.",
   },
   {
     title: "Revisions",
@@ -34,7 +34,7 @@ const steps = [
   },
   {
     title: "Launch",
-    description: "Your site goes live — polished, tested, and ready for real visitors.",
+    description: "Your site goes live - polished, tested, and ready for real visitors.",
   },
 ];
 
@@ -73,7 +73,7 @@ export function Process() {
         <SectionHeading
           kicker="Process"
           title="A clear path from idea to launch."
-          description="No surprises — you'll always know exactly what's happening and what comes next."
+          description="No surprises - you'll always know exactly what's happening and what comes next."
         />
 
         <div ref={containerRef} className="relative mt-16 max-w-2xl">

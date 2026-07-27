@@ -11,7 +11,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Software developer studying Computer Engineering — how I think, what I value, and why two web projects are only the floor.",
+    "Software developer studying Computer Engineering - how I think, what I value, and why two web projects are only the floor.",
   alternates: {
     canonical: `${siteConfig.url}/about`,
   },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const principles = [
   {
     title: "Constraints before inspiration boards",
-    text: "I look at what a project actually needs — audience, content, technical limits — before I look at what's trendy. The constraints usually reveal the right design faster than a mood board does.",
+    text: "I look at what a project actually needs - audience, content, technical limits - before I look at what's trendy. The constraints usually reveal the right design faster than a mood board does.",
   },
   {
     title: "Depth over breadth",
@@ -28,7 +28,7 @@ const principles = [
   },
   {
     title: "Comfortable being early",
-    text: "Constantly studying new frameworks and rendering patterns — because the tools that feel unfamiliar today are the default in two years, and I'd rather be fluent before that happens.",
+    text: "Constantly studying new frameworks and rendering patterns - because the tools that feel unfamiliar today are the default in two years, and I'd rather be fluent before that happens.",
   },
 ];
 
@@ -62,12 +62,12 @@ export default function AboutPage() {
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-fg-muted md:text-xl">
               Every new project is built from scratch, tailored to the specific needs of the
-              client it&apos;s for — not assembled from a template. What you&apos;ve seen so far
+              client it&apos;s for - not assembled from a template. What you&apos;ve seen so far
               is a floor, not a ceiling.
             </p>
             <p className="mt-4 max-w-2xl text-lg text-fg-muted md:text-xl">
               I&apos;m a software developer, currently studying Computer Engineering. Web is where
-              most of my published work lives right now — it&apos;s not the limit of what I build.
+              most of my published work lives right now - it&apos;s not the limit of what I build.
             </p>
 
             <div className="mt-9">
@@ -124,7 +124,7 @@ export default function AboutPage() {
         <section className="relative overflow-hidden border-t border-border py-24 md:py-32">
           <div className="container-premium flex flex-col items-center text-center">
             <h2 className="max-w-xl text-3xl font-medium leading-tight text-fg md:text-4xl">
-              If any of this sounds like the way you&apos;d want something built —
+              If any of this sounds like the way you&apos;d want something built -
             </h2>
             <div className="mt-8">
               <WhatsAppButton label="Let's Talk" message="Hi Rodrigo, I read your About page and I'd like to talk about a project." />

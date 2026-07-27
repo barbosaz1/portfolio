@@ -28,19 +28,19 @@ export async function generateMetadata({
   if (!project) return {};
 
   return {
-    title: `${project.name} — Case Study`,
+    title: `${project.name} - Case Study`,
     description: project.summary,
     alternates: {
       canonical: `${siteConfig.url}/work/${project.slug}`,
     },
     openGraph: {
-      title: `${project.name} — Case Study | ${siteConfig.name}`,
+      title: `${project.name} - Case Study | ${siteConfig.name}`,
       description: project.summary,
       images: [{ url: project.coverImage, width: 1200, height: 798, alt: project.coverAlt }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.name} — Case Study`,
+      title: `${project.name} - Case Study`,
       description: project.summary,
       images: [project.coverImage],
     },

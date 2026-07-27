@@ -84,7 +84,7 @@ body {
   color: var(--color-bg);
 }
 
-/* Noise texture — CSS-only, no image request */
+/* Noise texture - CSS-only, no image request */
 .bg-noise {
   position: relative;
 }
@@ -109,7 +109,7 @@ body {
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
 }
 
-/* Custom cursor — hidden on touch devices */
+/* Custom cursor - hidden on touch devices */
 @media (pointer: fine) {
   html.has-custom-cursor,
   html.has-custom-cursor * {

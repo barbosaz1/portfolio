@@ -17,7 +17,7 @@ export function FeaturedWork() {
         <SectionHeading
           kicker="Featured Work"
           title="Two projects. Zero shortcuts."
-          description="Every site here was designed and built end-to-end — from first concept to the version that's live today."
+          description="Every site here was designed and built end-to-end - from first concept to the version that's live today."
         />
       </div>
 
@@ -65,7 +65,7 @@ export function FeaturedWork() {
                   className={cn(reversed && "lg:order-1")}
                 >
                   <span className="font-mono text-xs uppercase tracking-[0.2em] text-fg-subtle">
-                    {String(index + 1).padStart(2, "0")} — {project.category}
+                    {String(index + 1).padStart(2, "0")} - {project.category}
                   </span>
 
                   <h3 className="mt-4 text-4xl font-medium tracking-tight text-fg md:text-5xl">

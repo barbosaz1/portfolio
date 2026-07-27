@@ -87,7 +87,7 @@ export function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 1.25 }}
             className="mt-4 max-w-lg text-balance text-fg-muted"
           >
-            Right now that shows up as fast, considered websites — but the same standard carries
+            Right now that shows up as fast, considered websites - but the same standard carries
             into everything else I build, developer tools included.
           </motion.p>
 

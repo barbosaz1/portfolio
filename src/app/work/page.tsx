@@ -12,7 +12,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected case studies — websites designed and built end-to-end, from first concept to production.",
+    "Selected case studies - websites designed and built end-to-end, from first concept to production.",
   alternates: {
     canonical: `${siteConfig.url}/work`,
   },
@@ -29,7 +29,7 @@ export default function WorkPage() {
             <SectionHeading
               kicker="Work"
               title="Selected case studies."
-              description="Every project here was designed and built end-to-end — from first concept to the version that's live today. More will land as they ship."
+              description="Every project here was designed and built end-to-end - from first concept to the version that's live today. More will land as they ship."
             />
           </div>
         </section>

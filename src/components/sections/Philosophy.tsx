@@ -7,11 +7,11 @@ import { cn } from "@/lib/utils";
 const beliefs = [
   {
     title: "Craft over shortcuts",
-    text: "Clean, readable code and obsessive attention to the details most people skip — because those are exactly the details visitors notice, even if they can't say why.",
+    text: "Clean, readable code and obsessive attention to the details most people skip - because those are exactly the details visitors notice, even if they can't say why.",
   },
   {
     title: "Performance is a feature",
-    text: "A beautiful site that loads slowly isn't beautiful — it's abandoned. Speed and technical SEO aren't afterthoughts; they're part of the design.",
+    text: "A beautiful site that loads slowly isn't beautiful - it's abandoned. Speed and technical SEO aren't afterthoughts; they're part of the design.",
   },
   {
     title: "Respect the smallest screen",
@@ -19,7 +19,7 @@ const beliefs = [
   },
   {
     title: "Say less, build more",
-    text: "No jargon, no fifteen-slide decks — just direct communication and a stack chosen because it fits the job, not because it's trending.",
+    text: "No jargon, no fifteen-slide decks - just direct communication and a stack chosen because it fits the job, not because it's trending.",
   },
 ];
 

@@ -21,7 +21,7 @@ export function LoadingScreen() {
     document.body.style.overflow = alreadyVisited ? "" : "hidden";
 
     // The visible percentage and the unlock itself are driven by plain
-    // wall-clock timers, never requestAnimationFrame — rAF can be fully
+    // wall-clock timers, never requestAnimationFrame - rAF can be fully
     // paused by the browser while a tab is backgrounded, which would
     // otherwise leave this screen (and the scroll lock) stuck indefinitely
     // for anyone who opens the site in a background tab.

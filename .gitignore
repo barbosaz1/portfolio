@@ -47,3 +47,7 @@ next-env.d.ts
 
 # claude code tooling (local to this machine/session)
 /.claude
+
+# xubz-ui lives here for local convenience but is its own repo, pushed
+# separately to github.com/barbosaz1/xubz-ui — not part of this site
+/xubz-ui

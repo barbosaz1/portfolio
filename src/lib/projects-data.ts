@@ -153,6 +153,60 @@ export const projects: Project[] = [
     ctaButtonLabel: "Chat About This Project",
     ctaMessage: "Hi Rodrigo, I saw the Xubz Dark theme case study and I'd like to talk about a project.",
   },
+  {
+    slug: "xubz-ui",
+    name: "Xubz UI",
+    category: "Open Source / Developer Tool",
+    tagline: "A 49-component design system built to feel handcrafted, not generated.",
+    summary:
+      "A framework-agnostic UI kit shipped as native Web Components — one precision-instrument-inspired design language, a live tweakcn-style theme editor, and full documentation, usable from React, Vue, Svelte, PHP, Java, and Rust without a rewrite.",
+    liveUrl: "https://github.com/barbosaz1/xubz-ui",
+    liveUrlLabel: "View on GitHub",
+    coverImage: "/images/projects/xubz-ui/cover.png",
+    coverAlt:
+      "The Xubz UI theme editor showing a full color and shape customization panel beside a live grid of components — accordions, tabs, cards, and menus — updating in real time.",
+    detailImages: [
+      {
+        src: "/images/projects/xubz-ui/detail-1.png",
+        alt: "A Xubz UI dialog open over a blurred backdrop, confirming a gauge recalibration, showing the system's verdigris accent and signature asymmetric button corner.",
+        position: "object-top",
+      },
+      {
+        src: "/images/projects/xubz-ui/detail-2.png",
+        alt: "The full Xubz UI component catalog page, showing all 49 components grouped into categories like Layout & Structure and Navigation in a dark-mode sidebar layout.",
+        position: "object-top",
+      },
+    ],
+    tech: ["Web Components", "TypeScript", "esbuild", "CSS Custom Properties"],
+    accent: {
+      primary: "#4FA48F",
+      soft: "#C7ECDF",
+      bg: "#141815",
+    },
+    overview:
+      "Most AI-assisted design ends up looking the same: rounded gray cards, blue buttons, default Tailwind spacing. Xubz UI started from the opposite brief — invent a genuinely distinct visual language, modeled on precision measuring instruments rather than any existing design system, and prove it could scale to a real, production-shaped component library instead of staying a mood board. It also had to solve a harder problem than most UI kits bother with: working natively across every framework, not just React.",
+    objectives: [
+      "Invent a visual identity recognizable from a screenshot alone — no rounded-gray-card, blue-button defaults",
+      "Cover the full surface of a real component library (49 components) on one consistent token system",
+      "Ship it as genuinely framework-agnostic — usable from React, Vue, Svelte, PHP, Java, and Rust without per-framework rewrites",
+    ],
+    process: [
+      "Designed the identity around precision instruments — calipers, dial gauges — before writing a line of component code: a neutral graphite palette, one signal accent color, radius that follows hierarchy instead of a single rounded default, and a 'settle' motion language instead of generic easing.",
+      "Built the whole library as native Web Components (Custom Elements + Shadow DOM) rather than React components, so the same package works unmodified in any framework or backend that renders HTML — including PHP and Java template engines and Rust frontends like Dioxus and Leptos.",
+      "Wrote all 49 components — forms, overlays, navigation, data display — on one shared token system, then built a live theme editor so every color, radius, and motion value is customizable and exportable as CSS, the same way tools like tweakcn work for shadcn/ui.",
+    ],
+    results: [
+      "A complete, installable component package (`@xubz/elements`) covering every category a real product needs: forms, dialogs, menus, data tables, calendars, charts, and more.",
+      "A documentation site with live, working examples of all 49 components and a full theme customizer, not static screenshots.",
+      "A design language that reads as its own thing — verified by building it out fully rather than stopping at a handful of demo components.",
+    ],
+    learnings:
+      "The hardest part wasn't inventing a color palette — it was making 49 components feel like they came from the same hand under real interaction, not just in static screenshots. Hover states, press feedback, and motion timing needed as much deliberate design as the color system itself; skipping them is exactly what makes generated-feeling UI feel generated.",
+    ctaHeading: "Curious about this project?",
+    ctaBody: "I design and build interfaces and tools with the same care I put into client websites. Let's talk.",
+    ctaButtonLabel: "Chat About This Project",
+    ctaMessage: "Hi Rodrigo, I saw the Xubz UI project and I'd like to talk about a project.",
+  },
 ];
 
 export function getProjectBySlug(slug: string) {

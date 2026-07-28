@@ -16,7 +16,7 @@ export function FeaturedWork() {
       <div className="container-premium">
         <SectionHeading
           kicker="Featured Work"
-          title="Two projects. Zero shortcuts."
+          title="Every project. Zero shortcuts."
           description="Every site here was designed and built end-to-end - from first concept to the version that's live today."
         />
       </div>

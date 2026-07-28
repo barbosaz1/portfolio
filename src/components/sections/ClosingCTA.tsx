@@ -30,8 +30,8 @@ export function ClosingCTA() {
           transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="mt-6 max-w-md text-lg text-fg-muted"
         >
-          If you&apos;re looking for something built with real attention to detail,
-          let&apos;s talk.
+          Open to software developer roles and interesting collaborations - let&apos;s
+          talk.
         </motion.p>
 
         <motion.div

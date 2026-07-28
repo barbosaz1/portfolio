@@ -17,7 +17,7 @@ export function FeaturedWork() {
         <SectionHeading
           kicker="Featured Work"
           title="Every project. Zero shortcuts."
-          description="Every site here was designed and built end-to-end - from first concept to the version that's live today."
+          description="Every project here was designed and built end-to-end - from first concept to the version that's live today."
         />
       </div>
 

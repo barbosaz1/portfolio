@@ -11,7 +11,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Software developer studying Computer Engineering - how I think, what I value, and why two web projects are only the floor.",
+    "Software developer studying Computer Engineering - how I think, what I value, and why the work shown here is only the floor.",
   alternates: {
     canonical: `${siteConfig.url}/about`,
   },
@@ -24,7 +24,7 @@ const principles = [
   },
   {
     title: "Depth over breadth",
-    text: "Two projects, built completely, teach more than ten built halfway. I'd rather go deep on the tools I use and actually master them than collect shallow experience across everything at once.",
+    text: "A handful of projects, built completely, teach more than dozens built halfway. I'd rather go deep on the tools I use and actually master them than collect shallow experience across everything at once.",
   },
   {
     title: "Comfortable being early",
@@ -51,7 +51,7 @@ export default function AboutPage() {
               About
             </p>
             <h1 className="max-w-4xl text-4xl font-medium leading-[1.1] tracking-tight text-fg sm:text-5xl md:text-6xl lg:text-7xl">
-              <RevealText text="The two projects shown here" />{" "}
+              <RevealText text="The projects shown here" />{" "}
               <RevealText
                 text="represent only a small part"
                 as="span"
@@ -61,9 +61,9 @@ export default function AboutPage() {
               <RevealText text="of what I'm capable of." delay={0.5} />
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-fg-muted md:text-xl">
-              Every new project is built from scratch, tailored to the specific needs of the
-              client it&apos;s for - not assembled from a template. What you&apos;ve seen so far
-              is a floor, not a ceiling.
+              Every new project is built from scratch, tailored to the specific problem it&apos;s
+              solving - not assembled from a template. What you&apos;ve seen so far is a floor,
+              not a ceiling.
             </p>
             <p className="mt-4 max-w-2xl text-lg text-fg-muted md:text-xl">
               I&apos;m a software developer, currently studying Computer Engineering. Web is where
@@ -124,10 +124,10 @@ export default function AboutPage() {
         <section className="relative overflow-hidden border-t border-border py-24 md:py-32">
           <div className="container-premium flex flex-col items-center text-center">
             <h2 className="max-w-xl text-3xl font-medium leading-tight text-fg md:text-4xl">
-              If any of this sounds like the way you&apos;d want something built -
+              If this sounds like the kind of developer you&apos;re looking for -
             </h2>
             <div className="mt-8">
-              <WhatsAppButton label="Let's Talk" message="Hi Rodrigo, I read your About page and I'd like to talk about a project." />
+              <WhatsAppButton label="Let's Talk" message="Hi Rodrigo, I read your About page and I'd like to get in touch." />
             </div>
           </div>
         </section>

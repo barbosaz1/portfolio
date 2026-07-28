@@ -12,7 +12,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected case studies - websites designed and built end-to-end, from first concept to production.",
+    "Selected case studies - software and web projects designed and built end-to-end, from first concept to production.",
   alternates: {
     canonical: `${siteConfig.url}/work`,
   },

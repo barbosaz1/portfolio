@@ -10,31 +10,30 @@ gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   {
-    title: "Initial Conversation",
+    title: "Discovery",
     description:
-      "We talk through your goals, your audience, and what success actually looks like for the project.",
+      "Understand the problem, the users, and what success actually looks like before touching any code.",
   },
   {
     title: "Planning",
-    description:
-      "I map out structure, content, and scope before a single line of code gets written.",
+    description: "Map out architecture, structure, and scope so the build has a clear foundation.",
   },
   {
     title: "Design",
     description:
-      "A visual direction tailored to your brand, shaped with you before development begins.",
+      "Shape a visual and interaction direction that fits the problem, not just what's trending.",
   },
   {
     title: "Development",
-    description: "The design comes to life in code - fast, responsive, and built to last.",
+    description: "Build it in code - fast, tested, and structured to scale.",
   },
   {
-    title: "Revisions",
-    description: "We refine the details together until everything feels exactly right.",
+    title: "Refinement",
+    description: "Iterate on the details until the experience feels exactly right.",
   },
   {
-    title: "Launch",
-    description: "Your site goes live - polished, tested, and ready for real visitors.",
+    title: "Ship & Iterate",
+    description: "Launch it, watch how it performs, and keep improving from there.",
   },
 ];
 
@@ -72,8 +71,8 @@ export function Process() {
       <div className="container-premium">
         <SectionHeading
           kicker="Process"
-          title="A clear path from idea to launch."
-          description="No surprises - you'll always know exactly what's happening and what comes next."
+          title="How I approach building software."
+          description="The same discipline, every time - from first idea to shipped, working product."
         />
 
         <div ref={containerRef} className="relative mt-16 max-w-2xl">

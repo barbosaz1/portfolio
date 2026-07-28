@@ -146,7 +146,7 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-2 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-2" />
               </span>
-              Available for new projects
+              Open to new opportunities
             </motion.div>
           </div>
         </div>

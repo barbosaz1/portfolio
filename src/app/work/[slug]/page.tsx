@@ -133,11 +133,11 @@ export default async function ProjectPage({
                 <ArrowUpRight className="h-4 w-4" />
               </MagneticButton>
               <WhatsAppButton
-                label="Discuss a Project Like This"
+                label="Get in Touch"
                 variant="secondary"
                 message={
                   project.ctaMessage ??
-                  `Hi Rodrigo, I saw the ${project.name} case study and I'd like to talk about a website project.`
+                  `Hi Rodrigo, I saw the ${project.name} case study and I'd like to get in touch.`
                 }
               />
             </div>
@@ -232,18 +232,18 @@ export default async function ProjectPage({
         <section className="relative overflow-hidden border-t border-border py-24 md:py-32">
           <div className="container-premium flex flex-col items-center text-center">
             <h2 className="max-w-2xl text-3xl font-medium leading-tight text-fg md:text-4xl">
-              {project.ctaHeading ?? "Want something like this for your brand?"}
+              {project.ctaHeading ?? "Want to know more about how this was built?"}
             </h2>
             <p className="mt-4 max-w-lg text-fg-muted">
               {project.ctaBody ??
-                "Every project starts with a conversation. Let's talk about what you're trying to build."}
+                "I'm always glad to talk through the technical decisions behind a project - or a potential opportunity."}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <WhatsAppButton
                 label={project.ctaButtonLabel ?? "Chat on WhatsApp"}
                 message={
                   project.ctaMessage ??
-                  `Hi Rodrigo, I saw the ${project.name} case study and I'd like to talk about a website project.`
+                  `Hi Rodrigo, I saw the ${project.name} case study and I'd like to get in touch.`
                 }
               />
             </div>

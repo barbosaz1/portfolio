@@ -12,7 +12,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch to talk about a project - WhatsApp, email, or whatever's easiest for you.",
+    "Get in touch about a role, a collaboration, or a project - WhatsApp, email, or whatever's easiest for you.",
   alternates: {
     canonical: `${siteConfig.url}/contact`,
   },
@@ -22,17 +22,17 @@ const steps = [
   {
     icon: Send,
     title: "You reach out",
-    text: "A message on WhatsApp or a quick email - a couple of lines about what you're trying to build is plenty to start.",
+    text: "A message on WhatsApp or a quick email - a couple of lines about the role or what you're working on is plenty to start.",
   },
   {
     icon: MessageSquare,
     title: "I reply personally",
-    text: "No forms, no sales team, no automated funnel. I read every message myself and respond directly.",
+    text: "No forms, no recruiter middleman, no automated funnel. I read every message myself and respond directly.",
   },
   {
     icon: Search,
     title: "We figure out the fit",
-    text: "A short conversation to understand the project and whether I'm the right person for it - no pressure either way.",
+    text: "A short conversation to understand what you're looking for and whether I'm the right fit - no pressure either way.",
   },
 ];
 
@@ -61,8 +61,8 @@ export default function ContactPage() {
             </h1>
 
             <p className="mt-7 max-w-lg text-balance text-lg text-fg-muted">
-              If you&apos;re looking for something built with real attention to detail,
-              let&apos;s talk. I&apos;d be glad to discuss your project.
+              Whether it&apos;s a role, a collaboration, or just a technical conversation,
+              I&apos;d be glad to talk.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

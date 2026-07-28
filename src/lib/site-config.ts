@@ -1,6 +1,6 @@
 const whatsappNumber = "351914220304";
 const whatsappDefaultMessage =
-  "Hi Rodrigo, I found your portfolio and I'd like to talk about a project.";
+  "Hi Rodrigo, I found your portfolio and I'd like to get in touch.";
 
 export const siteConfig = {
   name: "Rodrigo Barbosa",

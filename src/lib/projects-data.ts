@@ -149,9 +149,9 @@ export const projects: Project[] = [
     learnings:
       "Designing a theme forces a different kind of discipline than designing a UI: every decision has to survive being stared at for hours without becoming noise. The hardest part wasn't picking pretty colors - it was saying no to color wherever it didn't carry meaning.",
     ctaHeading: "Curious about this project?",
-    ctaBody: "I build tools and interfaces with the same care I put into client websites. Let's talk.",
+    ctaBody: "I build tools and interfaces with the same care I put into every project. Let's talk.",
     ctaButtonLabel: "Chat About This Project",
-    ctaMessage: "Hi Rodrigo, I saw the Xubz Dark theme case study and I'd like to talk about a project.",
+    ctaMessage: "Hi Rodrigo, I saw the Xubz Dark theme case study and I'd like to get in touch.",
   },
   {
     slug: "xubz-ui",
@@ -202,9 +202,9 @@ export const projects: Project[] = [
     learnings:
       "The hardest part wasn't inventing a color palette - it was making 49 components feel like they came from the same hand under real interaction, not just in static screenshots. Hover states, press feedback, and motion timing needed as much deliberate design as the color system itself; skipping them is exactly what makes generated-feeling UI feel generated.",
     ctaHeading: "Curious about this project?",
-    ctaBody: "I design and build interfaces and tools with the same care I put into client websites. Let's talk.",
+    ctaBody: "I design and build interfaces and tools with the same care I put into every project. Let's talk.",
     ctaButtonLabel: "Chat About This Project",
-    ctaMessage: "Hi Rodrigo, I saw the Xubz UI project and I'd like to talk about a project.",
+    ctaMessage: "Hi Rodrigo, I saw the Xubz UI project and I'd like to get in touch.",
   },
   {
     slug: "cipheraimg",
@@ -256,9 +256,9 @@ export const projects: Project[] = [
     learnings:
       "The interesting problems weren't the ciphers - libsodium and Node's crypto module already get those right. They were everywhere else: framing chunked ciphertext so truncation is always detected, keeping the true file size out of the plaintext header while still supporting optional padding, and being honest in the docs about exactly where memory-zeroing and EXIF stripping do and don't reach. A security tool's credibility comes from what it admits it can't do as much as from what it can.",
     ctaHeading: "Curious about this project?",
-    ctaBody: "I build tools and interfaces with the same care I put into client websites. Let's talk.",
+    ctaBody: "I build tools and interfaces with the same care I put into every project. Let's talk.",
     ctaButtonLabel: "Chat About This Project",
-    ctaMessage: "Hi Rodrigo, I saw the CIPHERAIMG project and I'd like to talk about a project.",
+    ctaMessage: "Hi Rodrigo, I saw the CIPHERAIMG project and I'd like to get in touch.",
   },
 ];
 

@@ -1,0 +1,170 @@
+---
+title: "OPSEC and the Myth of Total Anonymity"
+excerpt: "A VPN hides your IP address. It does nothing about the fact that you reuse the same username everywhere. On why total anonymity might not be achievable for anyone living an ordinary connected life - and why that's still worth thinking about."
+date: "2026-07-28"
+category: "Privacy"
+---
+
+I got into OPSEC the way a lot of computer science students do: I watched a couple of talks about
+data breaches, read a thread about how someone got doxxed over a Steam username, and thought,
+"okay, I need to lock this down." My first instinct, like most people's, was to install a VPN and
+start using Tor for anything remotely sensitive. And sure, those tools matter. But the more I've
+read and thought about this over the last couple of years, the more I've realized that OPSEC
+isn't really about tools at all. It's about habits.
+
+Operational Security, at its core, is just the discipline of not leaking information about
+yourself through the small, boring decisions you make every day. It's less "which browser
+extension blocks trackers" and more "did I just mention my hometown, my job, and my dog's name in
+three different posts that anyone could piece together in ten minutes." A VPN hides your IP
+address. It does nothing about the fact that you reuse the same username on five platforms, or
+that you post gym check-ins at the same time every morning. Real OPSEC lives in pattern
+recognition - recognizing the patterns you're leaving before someone else does.
+
+That distinction took me a while to actually internalize. I used to think privacy was a settings
+menu. Now I think of it more like a lifestyle audit, and once you start doing that audit
+honestly, you run into a much bigger and more uncomfortable question: is total anonymity even
+possible anymore? Not "hard." Not "inconvenient." Actually possible, for a normal person living a
+normal life.
+
+I don't think it is. And I want to walk through why, because I think the reasoning is more
+interesting than the conclusion.
+
+## The Hospital Thought Experiment
+
+Here's a thought that's been sitting with me for a while, and I don't mean it literally, more as
+a way to illustrate just how early the paper trail starts: if someone genuinely wanted to stay
+completely anonymous for their entire life, they might not even be able to be born in a hospital.
+
+Think about what happens the moment a baby is born in a normal hospital setting. There's a birth
+certificate. There's a medical record, often several, shared across insurance systems and
+provider networks. There's a Social Security number or national ID registration, depending on
+where you live. There's a hospital billing record tied to the parents' names, addresses, and
+payment method. In a lot of countries, there's also a government population registry entry
+created within days. None of this requires the person to do anything. They haven't made a single
+choice yet. They can't consent, they can't opt out, they're a few hours old - and they already
+have a digital and bureaucratic identity that will follow them for the rest of their life.
+
+That's the part that gets me. We usually talk about privacy as something you lose through your
+own actions: the accounts you sign up for, the apps you install, the things you post. But
+identity, in the modern administrative sense, often starts being built before you've made a
+single decision about your own life. It's not sinister, it's just how modern healthcare and civil
+registration systems work - they need records to function. But it does mean that "starting from
+zero, anonymity-wise" was never really on the table for most of us.
+
+I bring this up not to be dramatic, but because it reframes the whole conversation. If the
+starting point of your life already includes multiple institutional records, then the question
+isn't "can I achieve total anonymity," it's "how much of the identity that already exists can I
+realistically manage or minimize." Those are very different problems.
+
+## What It Would Actually Take
+
+Let's play out the thought experiment further, just for fun, and imagine someone who is dead
+serious about staying as untraceable as humanly possible for their whole life. What would that
+actually require?
+
+They'd probably need to live somewhere remote and rural, away from the dense sensor networks of
+cities - traffic cameras, transit card systems, retail cameras with facial recognition, the
+works. They'd need to avoid smartphones entirely, since a phone is basically a tracking device
+that also happens to make calls: it pings cell towers constantly, apps quietly log location in
+the background, and even with everything switched off, the device still generates metadata just
+by existing on a network. No social media, obviously, since that's an identity built by design.
+No online banking, because every transaction is a timestamped, geotagged record of where you were
+and what you were doing. No loyalty cards, since those exist specifically to link purchase
+history to a single identity for marketing purposes. And they'd need to minimize digital services
+in general - no cloud storage, no streaming accounts, no smart home devices, none of the
+conveniences that quietly assume you're fine being tracked in exchange for ease of use.
+
+When you list it out like that, it stops sounding like "good privacy hygiene" and starts sounding
+like opting out of modern civilization. And that's kind of the point I keep coming back to. Total
+anonymity isn't a setting you toggle. It's closer to a lifestyle that most people, myself
+included, would find unbearable - not because we're lazy, but because modern life is built on the
+assumption of connectivity. Try getting a job, renting an apartment, or seeing a doctor without
+any digital footprint at all. It's not impossible in theory, but it's so impractical that almost
+nobody actually attempts it, and the ones who do usually end up making enough exceptions that the
+anonymity isn't really total anyway.
+
+## The Internet Makes All of This Worse
+
+Even if you nailed all of the offline stuff, the internet adds a whole additional layer of
+exposure that a lot of people underestimate, because it's mostly invisible. This is the part of
+OPSEC that I think about most as a CS student, because it's less about lifestyle choices and more
+about how the plumbing of the web actually works.
+
+Websites collect way more than most people assume. Cookies track you across sites so advertisers
+can build a profile of your interests. Browser fingerprinting is quieter and honestly a little
+unsettling once you learn about it: your browser, screen resolution, installed fonts, and a dozen
+other small technical details combine into something close to a unique signature, even if you've
+disabled cookies. Your IP address gives away roughly where you are, sometimes down to the city or
+neighborhood. Metadata - the data about your data - reveals when you sent something, from what
+device, and often where, even if the content itself is encrypted. Location data gets baked into
+photos, check-ins, and even innocuous app permissions you granted once and forgot about. And your
+general online behavior - what you click, how long you linger on a page, what time of day you're
+active - gets logged and analyzed constantly, mostly for advertising, but the data exists
+regardless of who eventually uses it.
+
+None of this requires you to do anything careless. You can be relatively careful and still leave
+a trail, because the trail isn't really about your choices anymore - it's built into the
+infrastructure of how the web operates. Every click is a data point. Every page load is a small
+transaction of information, most of it invisible to the person doing the clicking. That's the
+uncomfortable truth I keep circling back to: it's not that people are bad at protecting their
+privacy, it's that the system was built to make that protection extremely difficult by default.
+
+## Then AI Enters the Picture
+
+Here's the part that actually worries me a bit more than cookies or IP logging, and it's
+something I think about a lot given what I'm studying: modern AI systems are increasingly good at
+connecting dots across data sources that used to feel disconnected.
+
+It's one thing for a single company to know your browsing habits on their own site. It's another
+thing entirely when systems get good at correlating a username here, a writing style there, a
+posting schedule somewhere else, and a location hint from a completely different platform, and
+stitching all of that into a surprisingly accurate picture of who you are, what you like, and
+what your daily routine looks like. Individually, each piece of information might seem harmless.
+A comment on a forum. A public repository. A photo with the location tag left on by accident. But
+pattern-matching at scale is exactly what modern machine learning is good at, and the more data
+sources there are, the easier that correlation becomes.
+
+This is where the idea of a "digital footprint" really clicks for me. People tend to think of
+their online presence as the stuff they've actively posted - tweets, photos, comments. But the
+footprint is much bigger than that. It includes the metadata attached to your files, the
+timestamps on your activity, the devices you've logged in from, the way you write and phrase
+things (which turns out to be more identifying than most people realize), and the quiet
+background data collected by services you don't even think of as "social." You leave footprints
+just by existing online, whether or not you're posting anything at all.
+
+## Some Questions Worth Sitting With
+
+I don't have clean answers to most of these, and I think that's fine - I don't think they're
+supposed to have clean answers. But they're worth asking honestly:
+
+Is complete anonymity still possible for an average person living an average modern life? Have we
+quietly traded away privacy for convenience without really negotiating that trade consciously? Is
+privacy turning into something closer to a luxury - available to people with the time, money, and
+technical knowledge to pursue it seriously - rather than something everyone gets by default? And
+maybe the most uncomfortable one: how much personal information do we hand over every single day
+without even registering that we're doing it? Every "allow location access," every "accept all
+cookies" click, every app permission granted just to get past the popup faster.
+
+I don't think there's anything wrong with asking these questions even if the honest answer, most
+days, is "yeah, probably, and I'm not going to change much about it." Awareness doesn't have to
+lead to paranoia. It can just lead to slightly better decisions made a little more deliberately.
+
+## Where That Leaves Us
+
+So where does that leave OPSEC as a practice, if total anonymity is basically off the table for
+most people? I'd argue it still matters enormously - just not as an all-or-nothing pursuit. Good
+privacy habits, thought through carefully, can meaningfully reduce how much of yourself you
+expose without requiring you to abandon modern life entirely. Using separate identities for
+different contexts, being deliberate about what metadata you share, understanding what a given
+app or service actually collects before you agree to it - none of that gets you to invisible, but
+it gets you to noticeably less exposed, and that's a real and worthwhile improvement.
+
+I've landed somewhere fairly simple after thinking about all this: chasing absolute anonymity is
+probably not a realistic goal for anyone living an ordinary connected life in this decade. The
+systems around us - hospitals, banks, phones, the internet itself - were built assuming
+identifiable participants, not anonymous ones, and unwinding that assumption really would mean
+opting out of most of society. That's a fine thing to know intellectually, but a strange thing to
+actually attempt.
+
+Maybe the goal is no longer to become invisible, but to be more aware of the digital footprints
+we leave behind every day.

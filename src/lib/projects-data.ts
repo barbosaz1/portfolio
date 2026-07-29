@@ -207,6 +207,62 @@ export const projects: Project[] = [
     ctaMessage: "Hi Rodrigo, I saw the Xubz UI project and I'd like to get in touch.",
   },
   {
+    slug: "xiux",
+    name: "xiux",
+    category: "Open Source / Developer Tool",
+    tagline: "Neovim, reimagined as a native IDE.",
+    summary:
+      "A from-scratch native IDE built on the idea of what Neovim would look like designed today: a real modal Vim engine, GPU-rendered text, and a first-class customization system, with no Electron and no browser engine anywhere in the stack.",
+    liveUrl: "https://github.com/barbosaz1/xiux-ide",
+    liveUrlLabel: "View on GitHub",
+    coverImage: "/images/projects/xiux/cover.png",
+    coverAlt:
+      "xiux IDE showing its file explorer sidebar and a Rust source file with live syntax highlighting for keywords, types, and functions.",
+    detailImages: [
+      {
+        src: "/images/projects/xiux/detail-1.png",
+        alt: "The xiux Marketplace panel showing a scrollable gallery of over fifty built-in color themes with live Apply buttons.",
+        position: "object-top",
+      },
+      {
+        src: "/images/projects/xiux/detail-2.png",
+        alt: "The xiux editor with a different built-in theme applied, showing the same Rust code re-colored instantly.",
+        position: "object-top",
+      },
+    ],
+    tech: ["Rust", "wgpu", "egui/eframe", "ropey", "GitHub Actions"],
+    accent: {
+      primary: "#7AA2F7",
+      soft: "#C9D9FB",
+      bg: "#11121a",
+    },
+    overview:
+      "xiux is a personal, no-shortcuts attempt at answering a specific question: what would Neovim look like if someone designed it today, with modern rendering and zero legacy baggage, instead of cloning it feature-for-feature? That meant a real modal editing engine - not a syntax-highlighted text box with a few keybindings bolted on - a GPU-rendered viewport-culled text view instead of a webview, and a customization system deep enough that changing the whole feel of the editor is a two-click action, not a config-file archaeology project.",
+    objectives: [
+      "Implement a genuinely correct Vim modal engine - motions, operators, text objects, registers, macros, dot-repeat - not a shallow imitation",
+      "Render everything on the GPU with a custom, viewport-culled text view so performance holds up regardless of file size",
+      "Build a customization system deep enough to cover themes, fonts, cursor behavior, and layout without ever touching a config file by hand",
+      "Prove it actually builds and runs natively on both Windows and macOS, not just on the machine it was written on",
+    ],
+    process: [
+      "Built the editing engine first, in complete isolation from any UI: a rope-backed buffer, a recursive-descent parser for Normal-mode command sequences, and every motion/operator/text-object combination, so the modal logic could be reasoned about (and would keep working) independently of how it's eventually rendered.",
+      "Wrote a custom, GPU-accelerated editor view on wgpu/egui that only ever lays out the visible rows, plus a from-scratch multi-language syntax highlighter and a keyword-and-buffer-based autocomplete engine, since there's no LSP yet to lean on.",
+      "Layered on the parts that make an editor feel like a real tool day to day: an integrated terminal, a local live-preview server for web projects, a Git panel wired to the system's own git binary, and a Marketplace panel with over fifty built-in themes plus live font and cursor customization.",
+      "Set up a Windows + macOS build matrix in GitHub Actions so 'it builds cross-platform' is a verified fact, not a claim - every push is compiled and tested on both operating systems on real runners.",
+    ],
+    results: [
+      "A real, working native IDE: modal editing, GPU-rendered syntax highlighting, an integrated terminal, Git integration, and a 50+ theme gallery, all functioning end-to-end.",
+      "A green CI matrix building and testing the full workspace on both windows-latest and macos-latest for every change.",
+      "A codebase and README that are explicit about what's genuinely finished versus what's deliberately scoped out (LSP-based completion, a plugin runtime, DAP debugging) - the roadmap is the honest next-steps list, not marketing copy.",
+    ],
+    learnings:
+      "The hardest part wasn't the Vim engine - it was resisting the pull to fake progress. It would have been easy to hardcode a few keybindings and call it 'Vim-like,' or ship a debugger panel that doesn't actually debug anything. The rule that kept the project honest was simple: if a feature isn't real yet, the UI has to say so in plain language instead of pretending. That constraint slowed some things down and made the whole thing more trustworthy to build on.",
+    ctaHeading: "Curious about this project?",
+    ctaBody: "I build tools and interfaces with the same care I put into every project. Let's talk.",
+    ctaButtonLabel: "Chat About This Project",
+    ctaMessage: "Hi Rodrigo, I saw the xiux IDE project and I'd like to get in touch.",
+  },
+  {
     slug: "cipheraimg",
     name: "CIPHERAIMG",
     category: "Security / Developer Tool",

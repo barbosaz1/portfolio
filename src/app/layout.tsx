@@ -1,17 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif } from "next/font/google";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import { Archivo } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
-import { CustomCursor } from "@/components/layout/CustomCursor";
-import { LoadingScreen } from "@/components/layout/LoadingScreen";
+import { projects } from "@/lib/projects-data";
+import { SiteShell } from "@/components/site/SiteShell";
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["italic", "normal"],
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin", "latin-ext"],
+  axes: ["wdth"],
   display: "swap",
 });
 
@@ -29,10 +26,11 @@ export const metadata: Metadata = {
     "Rodrigo Barbosa",
     "Software Developer",
     "Software Engineer",
-    "Frontend Engineer",
+    "Computer Engineering",
+    "Java Developer",
     "Next.js Developer",
     "React Developer",
-    "Web Development",
+    "Portfolio",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -67,9 +65,16 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08080a",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#e4e6e0" },
+    { media: "(prefers-color-scheme: dark)", color: "#1b1e23" },
+  ],
 };
+
+// Runs before first paint. Marks JS + motion support on <html> so the hero can
+// start in its pre-entrance state, skips the loader on repeat visits, and adds
+// a failsafe: if the page script never reports in, hidden content is restored.
+const bootScript = `(function(){var h=document.documentElement;h.classList.add('js');try{if(matchMedia('(prefers-reduced-motion: no-preference)').matches)h.classList.add('motion');else h.classList.add('rb-skip-loader');if(sessionStorage.getItem('rb-visited')||/^#case\\//.test(location.hash))h.classList.add('rb-skip-loader');}catch(e){h.classList.add('rb-skip-loader');}setTimeout(function(){if(!h.classList.contains('rb-ready'))h.classList.add('rb-fail');},9000);})();`;
 
 export default function RootLayout({
   children,
@@ -81,33 +86,42 @@ export default function RootLayout({
     "@type": "Person",
     name: siteConfig.name,
     url: siteConfig.url,
-    jobTitle: "Software Developer",
+    jobTitle: siteConfig.role,
     email: siteConfig.email,
+    image: `${siteConfig.url}${siteConfig.portrait}`,
     sameAs: [siteConfig.social.github],
+    alumniOf: { "@type": "CollegeOrUniversity", name: "Universidade Portucalense" },
     knowsAbout: [
       "Software Development",
-      "Web Development",
-      "Frontend Engineering",
-      "Next.js",
-      "React",
+      "Java",
+      "Spring Boot",
       "TypeScript",
-      "UI/UX Design",
+      "React",
+      "Next.js",
+      "Interface Design",
     ],
   };
 
+  const overviewProjects = projects.map((p) => ({
+    slug: p.slug,
+    name: p.name,
+    tech: p.tech,
+  }));
+
   return (
-    <html
-      lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${instrumentSerif.variable} h-full scroll-smooth antialiased motion-reduce:scroll-auto`}
-    >
-      <body className="min-h-full flex flex-col bg-bg text-fg selection:bg-accent">
+    <html lang="en" className={archivo.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
+      </head>
+      <body data-tone="base">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <LoadingScreen />
-        <CustomCursor />
-        {children}
+        <a className="skip" href="#main">
+          Skip to content
+        </a>
+        <SiteShell projects={overviewProjects}>{children}</SiteShell>
       </body>
     </html>
   );

@@ -15,9 +15,7 @@ export function TableOfContents({ items }: { items: TocItem[] }) {
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries.filter((entry) => entry.isIntersecting);
-        if (visible.length > 0) {
-          setActiveId(visible[0].target.id);
-        }
+        if (visible.length > 0) setActiveId(visible[0].target.id);
       },
       { rootMargin: "-100px 0px -70% 0px" },
     );
@@ -29,18 +27,13 @@ export function TableOfContents({ items }: { items: TocItem[] }) {
   if (items.length === 0) return null;
 
   return (
-    <nav aria-label="Table of contents" className="flex flex-col gap-3">
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-fg-subtle">On this page</p>
+    <nav aria-label="Table of contents" className="toc">
+      <p className="lbl muted">On this page</p>
       {items.map((item) => (
         <a
           key={item.id}
           href={`#${item.id}`}
-          data-cursor="hover"
-          className={cn(
-            "text-sm transition-colors duration-300",
-            item.level === 3 && "pl-4",
-            activeId === item.id ? "text-fg" : "text-fg-muted hover:text-fg",
-          )}
+          className={cn(item.level === 3 && "is-sub", activeId === item.id && "is-active")}
         >
           {item.text}
         </a>

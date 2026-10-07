@@ -5,13 +5,9 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
-import { ArticleCard } from "@/components/ui/ArticleCard";
+import { ContactSection } from "@/components/site/ContactSection";
+import { JournalRow, formatArticleDate } from "@/components/journal/JournalRow";
 import { TableOfContents } from "@/components/ui/TableOfContents";
-import { GridNoiseBackground } from "@/components/ui/GridNoiseBackground";
 import { mdxComponents } from "@/components/journal/mdx-components";
 import {
   getAllArticles,
@@ -56,14 +52,6 @@ export async function generateMetadata({
   };
 }
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-}
-
 export default async function ArticlePage({
   params,
 }: {
@@ -91,7 +79,8 @@ export default async function ArticlePage({
   const related = getRelatedArticles(article);
   const allArticles = getAllArticles();
   const currentIndex = allArticles.findIndex((a) => a.slug === slug);
-  const nextArticle = allArticles[(currentIndex + 1) % allArticles.length];
+  const nextArticle =
+    allArticles.length > 1 ? allArticles[(currentIndex + 1) % allArticles.length] : null;
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -109,81 +98,52 @@ export default async function ArticlePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <Header />
-      <main className="relative">
-        <section className="relative overflow-hidden pb-16 pt-32 md:pt-40">
-          <GridNoiseBackground />
-          <div className="container-premium relative z-10">
-            <Link
-              href="/journal"
-              data-cursor="hover"
-              className="inline-flex items-center gap-2 text-sm text-fg-muted transition-colors hover:text-fg"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Journal
+      <main id="main">
+        <article data-tone="base" aria-labelledby="articleTitle">
+          <header className="article-head">
+            <Link className="pill" href="/journal">
+              ← Journal
             </Link>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-fg-subtle">
+            <div className="article-head__kicker">
               <span>{article.category}</span>
-              <span className="h-1 w-1 rounded-full bg-fg-subtle" />
-              <span>{formatDate(article.date)}</span>
-              <span className="h-1 w-1 rounded-full bg-fg-subtle" />
-              <span>{article.readingTime} min read</span>
+              <span className="muted num">{formatArticleDate(article.date)}</span>
+              <span className="muted">{article.readingTime} min read</span>
             </div>
-
-            <h1 className="mt-5 max-w-3xl text-4xl font-medium leading-[1.05] tracking-tight text-fg md:text-6xl">
+            <h1 className="article-head__title" id="articleTitle">
               {article.title}
             </h1>
+            <p className="article-head__excerpt muted">{article.excerpt}</p>
+          </header>
+
+          <div className="article-body">
+            <aside className="article-body__toc">
+              <TableOfContents items={toc} />
+            </aside>
+            <div className="article-body__content prose">{content}</div>
           </div>
-        </section>
 
-        <section className="container-premium pb-24 md:pb-32">
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_3fr]">
-            {toc.length > 0 && (
-              <aside className="hidden lg:block">
-                <div className="sticky top-28">
-                  <TableOfContents items={toc} />
-                </div>
-              </aside>
-            )}
-
-            <article className="max-w-2xl">{content}</article>
-          </div>
-        </section>
-
-        {related.length > 0 && (
-          <section className="border-t border-border py-24 md:py-32">
-            <div className="container-premium">
-              <h2 className="font-mono text-sm uppercase tracking-[0.2em] text-fg-subtle">
+          {related.length > 0 && (
+            <section className="related" aria-labelledby="relatedTitle">
+              <h2 className="lbl muted" id="relatedTitle">
                 Related
               </h2>
-              <div className="mt-6 flex flex-col">
-                {related.map((relatedArticle, i) => (
-                  <ArticleCard key={relatedArticle.slug} article={relatedArticle} index={i} />
+              <ol>
+                {related.map((relatedArticle) => (
+                  <JournalRow article={relatedArticle} key={relatedArticle.slug} />
                 ))}
-              </div>
-            </div>
-          </section>
-        )}
+              </ol>
+            </section>
+          )}
 
-        {nextArticle && (
-          <Link
-            href={`/journal/${nextArticle.slug}`}
-            data-cursor="hover"
-            className="group relative flex flex-col items-center justify-center gap-4 border-t border-border px-6 py-24 text-center transition-colors hover:bg-bg-elevated/40 md:py-32"
-          >
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-fg-subtle">
-              Next Article
-            </span>
-            <span className="max-w-2xl text-3xl font-medium text-fg transition-colors duration-300 group-hover:text-accent-soft md:text-5xl">
-              {nextArticle.title}
-            </span>
-            <ArrowRight className="h-5 w-5 text-fg-subtle transition-transform duration-300 group-hover:translate-x-2" />
-          </Link>
-        )}
+          {nextArticle && (
+            <Link className="next-link" href={`/journal/${nextArticle.slug}`} data-cursor="Read">
+              <span className="lbl muted">Next article</span>
+              <span className="next-link__title">{nextArticle.title}</span>
+            </Link>
+          )}
+        </article>
+        <ContactSection />
       </main>
-      <Footer />
-      <FloatingWhatsApp />
     </>
   );
 }

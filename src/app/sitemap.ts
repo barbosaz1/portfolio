@@ -6,18 +6,12 @@ import { getAllArticles } from "@/lib/journal";
 export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getAllArticles();
 
-  const routes: MetadataRoute.Sitemap = [
+  return [
     {
       url: siteConfig.url,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
-    },
-    {
-      url: `${siteConfig.url}/work`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
     },
     ...projects.map((project) => ({
       url: `${siteConfig.url}/work/${project.slug}`,
@@ -25,12 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
-    {
-      url: `${siteConfig.url}/about`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
     {
       url: `${siteConfig.url}/journal`,
       lastModified: new Date(),
@@ -43,13 +31,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly" as const,
       priority: 0.6,
     })),
-    {
-      url: `${siteConfig.url}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.7,
-    },
   ];
-
-  return routes;
 }

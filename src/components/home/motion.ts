@@ -201,7 +201,7 @@ export function initScrollMotion(root: HTMLElement, heroType: HeroType) {
       gsap.to(q(".hero__line--2"), { xPercent: 10, ease: "none", scrollTrigger: { ...st } });
     }
 
-    /* INTRO - statement fills in word by word as you read; portrait uncovers and drifts. */
+    /* INTRO - statement fills in word by word as you read; portrait uncovers. */
     const statement = q(".intro__statement")[0];
     gsap.fromTo(
       q(".intro__statement .w"),
@@ -224,17 +224,6 @@ export function initScrollMotion(root: HTMLElement, heroType: HeroType) {
         scrollTrigger: { trigger: portrait, start: "top 85%", once: true },
       },
     );
-    if (desk) {
-      gsap.fromTo(
-        q(".portrait__inner"),
-        { yPercent: -8 },
-        {
-          yPercent: 8,
-          ease: "none",
-          scrollTrigger: { trigger: portrait, start: "top bottom", end: "bottom top", scrub: true },
-        },
-      );
-    }
     batchIn(q(".fact"), { from: { "--line": 0 }, to: { "--line": 1 } });
 
     /* WORK - each project grows from a small frame to the full stage; title and metadata follow. */

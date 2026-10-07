@@ -712,18 +712,18 @@ html.motion:not(.rb-fail) .hero__note {
 .portrait {
   grid-column: 1 / span 4;
   position: relative;
-  aspect-ratio: 4/5;
+  /* Matches the photo (1400x1646) so nothing is cropped. */
+  aspect-ratio: 1400 / 1646;
   overflow: hidden;
   background: var(--chalk);
 }
 .portrait__inner {
   position: absolute;
-  inset: -10% 0;
-  will-change: transform;
+  inset: 0;
 }
 .portrait__inner img {
-  object-fit: cover;
-  object-position: 50% 20%;
+  object-fit: contain;
+  object-position: 50% 100%;
 }
 .portrait figcaption {
   position: absolute;

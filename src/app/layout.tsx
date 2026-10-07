@@ -59,9 +59,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/favicon.svg",
-  },
+  // Icons come from src/app/icon.svg, favicon.ico and apple-icon.png.
 };
 
 export const viewport: Viewport = {

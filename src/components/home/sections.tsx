@@ -183,7 +183,7 @@ export function Work({
               <span className="proj__bar" aria-hidden="true">
                 <i />
               </span>
-              <span className="num">{hostOf(p.liveUrl)}</span>
+              <span className="num">{p.liveUrl ? hostOf(p.liveUrl) : "Local build"}</span>
             </div>
 
             <button

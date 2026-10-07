@@ -52,6 +52,7 @@ export const skills: SkillGroup[] = [
       { name: "HTML & CSS", level: "core" },
       { name: "Tailwind CSS", level: "core" },
       { name: "Web Components", level: "familiar" },
+      { name: "Three.js & WebGL", level: "familiar" },
       { name: "GSAP", level: "familiar" },
       { name: "Framer Motion", level: "familiar" },
       { name: "Vite", level: "familiar" },

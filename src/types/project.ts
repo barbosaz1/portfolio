@@ -16,7 +16,8 @@ export type Project = {
   category: string;
   tagline: string;
   summary: string;
-  liveUrl: string;
+  /** Omitted for projects that only run locally. */
+  liveUrl?: string;
   coverImage: string;
   coverAlt: string;
   detailImages: [ProjectDetailImage, ProjectDetailImage];

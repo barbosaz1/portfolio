@@ -67,14 +67,21 @@ export function CaseStudyBody({
           <dt className="lbl muted">Stack</dt>
           <dd>{project.tech.join(", ")}</dd>
         </div>
-        <div>
-          <dt className="lbl muted">{project.liveUrlLabel ? "Source" : "Live site"}</dt>
-          <dd>
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-              {hostOf(project.liveUrl)}
-            </a>
-          </dd>
-        </div>
+        {project.liveUrl ? (
+          <div>
+            <dt className="lbl muted">{project.liveUrlLabel ? "Source" : "Live site"}</dt>
+            <dd>
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                {hostOf(project.liveUrl)}
+              </a>
+            </dd>
+          </div>
+        ) : (
+          <div>
+            <dt className="lbl muted">Status</dt>
+            <dd>Local build, not publicly deployed</dd>
+          </div>
+        )}
         <div>
           <dt className="lbl muted">Questions</dt>
           <dd>

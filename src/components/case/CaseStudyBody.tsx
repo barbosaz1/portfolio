@@ -54,10 +54,24 @@ export function CaseStudyBody({
       <Heading className="case__title" id={titleId}>
         <SplitChars text={project.name} />
       </Heading>
-      <p className="case__lead r">
-        <span className="case__tagline">{project.tagline}</span>
-        {project.summary}
-      </p>
+      <div className="case__intro">
+        <p className="case__lead r">
+          <span className="case__tagline">{project.tagline}</span>
+          {project.summary}
+        </p>
+        {project.liveUrl && (
+          <div className="case__cta r">
+            <a
+              className="pill pill--solid"
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {project.liveUrlLabel ?? "Visit live site"} ↗
+            </a>
+          </div>
+        )}
+      </div>
       <dl className="case__meta r">
         <div>
           <dt className="lbl muted">Role</dt>
@@ -69,7 +83,9 @@ export function CaseStudyBody({
         </div>
         {project.liveUrl ? (
           <div>
-            <dt className="lbl muted">{project.liveUrlLabel ? "Source" : "Live site"}</dt>
+            <dt className="lbl muted">
+              {project.liveUrl.includes("github.com") ? "Source" : "Live site"}
+            </dt>
             <dd>
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 {hostOf(project.liveUrl)}

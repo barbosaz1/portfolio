@@ -270,6 +270,8 @@ export const projects: Project[] = [
     tagline: "The hour before dark.",
     summary:
       "A scroll-driven WebGL story for a concept Dão wine brand: one continuous camera move from the granite hills, into a single grape, through the cellar and the bottle, and out into the night - every 3D object generated in code.",
+    liveUrl: "https://vespera-sand.vercel.app",
+    liveUrlLabel: "Open the experience",
     coverImage: "/images/projects/vespera/cover.jpg",
     coverAlt:
       "Véspera's hero moment: a black bottle of Lume 2021 on a podium, drawn in white ink lines against a sunburst, in the experience's line-art style.",
@@ -292,7 +294,7 @@ export const projects: Project[] = [
       bg: "#070605",
     },
     overview:
-      "Véspera is a fictional wine from the granite hills of Dão, built around one idea - the hour before dark - and three wines named after hours of the same day. Instead of a product page, the site is a single camera journey through nine acts: the land, the vine, the inside of a grape, the cellar, the bottle, the pour, the landscape, tasting, and the night. It's a personal project that runs locally, made to push how far a web page can go as a piece of storytelling.",
+      "Véspera is a fictional wine from the granite hills of Dão, built around one idea - the hour before dark - and three wines named after hours of the same day. Instead of a product page, the site is a single camera journey through nine acts: the land, the vine, the inside of a grape, the cellar, the bottle, the pour, the landscape, tasting, and the night. It's a personal project, made to push how far a web page can go as a piece of storytelling.",
     objectives: [
       "Tell the whole story - land to grape to cellar to glass - as one continuous camera path instead of stacked sections",
       "Generate every 3D object in code, with no downloaded models or textures, so the experience loads instantly",
@@ -305,16 +307,16 @@ export const projects: Project[] = [
       "Added three quality tiers (full, optimized and a static no-WebGL version), live frame-rate monitoring, culling of off-screen worlds, and a fixed light count so shaders never recompile mid-scroll.",
     ],
     results: [
-      "A working local build with all nine acts, plus About, Wine, Cellar, Collection and Contact pages.",
+      "A live experience at vespera-sand.vercel.app with all nine acts, plus About, Wine, Cellar, Collection and Contact pages.",
       "Zero binary 3D assets: the bottle, terrain, cellar, leaves and liquid are all generated at runtime.",
       "A consistent ink-drawing art direction across the 3D scenes and the editorial pages.",
     ],
     learnings:
       "The hardest problems were invisible ones. Adding or removing a single light makes WebGL recompile every shader and the scroll stutters, so the light count had to stay fixed and every mood change became an animation of existing lights. Performance work stopped being a final pass and became part of the art direction.",
-    ctaHeading: "Want to see it running?",
-    ctaBody: "Véspera only runs locally for now - I'm happy to walk you through it live.",
-    ctaButtonLabel: "Ask for a walkthrough",
-    ctaMessage: "Hi Rodrigo, I saw the Véspera project on your portfolio and I'd like to see it running.",
+    ctaHeading: "Curious about how it was built?",
+    ctaBody: "Best with headphones - and I'm happy to walk you through how it works.",
+    ctaButtonLabel: "Chat About This Project",
+    ctaMessage: "Hi Rodrigo, I saw the Véspera project on your portfolio and I'd like to talk about how it was built.",
   },
 ];
 

@@ -115,6 +115,7 @@ export function Intro() {
               src={siteConfig.portrait}
               alt={`Portrait of ${siteConfig.name}`}
               fill
+              quality={90}
               sizes="(max-width: 600px) 100vw, (max-width: 900px) 66vw, 33vw"
             />
           </div>
@@ -205,6 +206,7 @@ export function Work({
                     src={heroImage(p).src}
                     alt={heroImage(p).alt}
                     fill
+                    quality={90}
                     sizes="100vw"
                     style={{ objectPosition: heroImage(p).position }}
                   />

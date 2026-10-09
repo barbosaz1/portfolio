@@ -10,20 +10,20 @@ export const projects: Project[] = [
       "A boutique home cleaning brand serving Cape Cod, reimagined as a warm, editorial website that feels as considered as the homes it cares for.",
     liveUrl: "https://belaflorcleaning.com",
     banner: {
-      src: "/images/projects/bela-flor-cleaning/banner.jpg",
+      src: "/images/projects/bela-flor-cleaning/banner@2x.jpg",
       alt: "Bela Flor banner: the headline Elegance in every detail in Cormorant Garamond over the softly lit living room, with the brand wordmark and rose pill buttons.",
     },
-    coverImage: "/images/projects/bela-flor-cleaning/cover.png",
+    coverImage: "/images/projects/bela-flor-cleaning/cover@2x.jpg",
     coverAlt:
       "Bela Flor Cleaning homepage showing a softly lit living room with the headline Elegance in every detail.",
     detailImages: [
       {
-        src: "/images/projects/bela-flor-cleaning/detail-1.png",
+        src: "/images/projects/bela-flor-cleaning/detail-1@2x.jpg",
         alt: "Bela Flor Cleaning services section with editorial photography and service cards.",
         position: "object-top",
       },
       {
-        src: "/images/projects/bela-flor-cleaning/detail-2.png",
+        src: "/images/projects/bela-flor-cleaning/detail-2@2x.jpg",
         alt: "Bela Flor Cleaning consultation booking screen next to a luxury bathroom photograph.",
         position: "object-left",
       },
@@ -63,20 +63,20 @@ export const projects: Project[] = [
       "A real estate investment company in Vila do Conde and Póvoa de Varzim, redesigned around two clear paths - investors who want to join operations and owners with a property to propose - under an illustrated dusk skyline of the two towns.",
     liveUrl: "https://rb-investimentos.vercel.app",
     banner: {
-      src: "/images/projects/rb-investimentos/banner.jpg",
+      src: "/images/projects/rb-investimentos/banner@2x.png",
       alt: "R&B banner: the serif headline Investimento imobiliário com visão de longo prazo over the cobalt and peach dusk skyline of Vila do Conde and Póvoa de Varzim.",
     },
-    coverImage: "/images/projects/rb-investimentos/cover-2026.png",
+    coverImage: "/images/projects/rb-investimentos/cover@2x.png",
     coverAlt:
       "R&B homepage: the serif headline Investimento imobiliário com visão de longo prazo over a cobalt-to-peach dusk illustration of the Vila do Conde and Póvoa de Varzim skyline.",
     detailImages: [
       {
-        src: "/images/projects/rb-investimentos/detail-1-2026.png",
+        src: "/images/projects/rb-investimentos/detail-1@2x.png",
         alt: "R&B's illustrated map of Póvoa de Varzim, Vila do Conde, the Rio Ave and the coast, beside the Onde atuamos section.",
         position: "object-left",
       },
       {
-        src: "/images/projects/rb-investimentos/detail-2-2026.png",
+        src: "/images/projects/rb-investimentos/detail-2@2x.png",
         alt: "R&B's investor onboarding page, a five-question flow starting with the investor's main objective.",
         position: "object-top",
       },
@@ -118,7 +118,7 @@ export const projects: Project[] = [
     liveUrl: "https://github.com/barbosaz1/xubz-theme",
     liveUrlLabel: "View on GitHub",
     banner: {
-      src: "/images/projects/xubz-theme/banner.jpg",
+      src: "/images/projects/xubz-theme/banner@2x.png",
       alt: "Xubz Dark banner: a VS Code window in the theme, with cyan keywords, green functions, gold types and a single red error squiggle.",
     },
     coverImage: "/images/projects/xubz-theme/cover.png",
@@ -175,20 +175,20 @@ export const projects: Project[] = [
       "A framework-agnostic UI kit shipped as native Web Components - one precision-instrument-inspired design language, a live tweakcn-style theme editor, and full documentation, usable from React, Vue, Svelte, PHP, Java, and Rust without a rewrite.",
     liveUrl: "https://xubz-ui.vercel.app/",
     banner: {
-      src: "/images/projects/xubz-ui/banner.jpg",
+      src: "/images/projects/xubz-ui/banner@2x.png",
       alt: "Xubz UI banner: the headline Graduated, not rounded beside an instrument panel built from the real components - tabs, graduated slider, progress, switch, badges and avatars.",
     },
-    coverImage: "/images/projects/xubz-ui/cover.png",
+    coverImage: "/images/projects/xubz-ui/cover@2x.png",
     coverAlt:
       "The Xubz UI theme editor showing a full color and shape customization panel beside a live grid of components - accordions, tabs, cards, and menus - updating in real time.",
     detailImages: [
       {
-        src: "/images/projects/xubz-ui/detail-1.png",
+        src: "/images/projects/xubz-ui/detail-1@2x.png",
         alt: "A Xubz UI dialog open over a blurred backdrop, confirming a gauge recalibration, showing the system's verdigris accent and signature asymmetric button corner.",
         position: "object-top",
       },
       {
-        src: "/images/projects/xubz-ui/detail-2.png",
+        src: "/images/projects/xubz-ui/detail-2@2x.png",
         alt: "The full Xubz UI component catalog page, showing all 49 components grouped into categories like Layout & Structure and Navigation in a dark-mode sidebar layout.",
         position: "object-top",
       },
@@ -233,7 +233,7 @@ export const projects: Project[] = [
     liveUrl: "https://github.com/barbosaz1/xiux-ide",
     liveUrlLabel: "View on GitHub",
     banner: {
-      src: "/images/projects/xiux/banner.jpg",
+      src: "/images/projects/xiux/banner@2x.png",
       alt: "xiux banner: the IDE in its xiux Dark theme, showing Rust code, the NORMAL mode status line and the theme marketplace.",
     },
     coverImage: "/images/projects/xiux/cover.png",
@@ -293,21 +293,21 @@ export const projects: Project[] = [
     liveUrl: "https://vespera-sand.vercel.app",
     liveUrlLabel: "Open the experience",
     banner: {
-      src: "/images/projects/vespera/banner.jpg",
+      src: "/images/projects/vespera/banner@2x.jpg",
       alt: "Véspera banner: the Lume bottle on a granite slab at night, drawn in white ink lines, above the line The hour before dark.",
       position: "50% 22%",
     },
-    coverImage: "/images/projects/vespera/cover.jpg",
+    coverImage: "/images/projects/vespera/cover@2x.jpg",
     coverAlt:
-      "Véspera's hero moment: a black bottle of Lume 2021 on a podium, drawn in white ink lines against a sunburst, in the experience's line-art style.",
+      "A close-up of the Lume 2021 bottle in Véspera's ink-line style, its label fully legible, beside the name LUME set in giant serif type against a sunburst.",
     detailImages: [
       {
-        src: "/images/projects/vespera/detail-1.jpg",
+        src: "/images/projects/vespera/detail-1@2x.jpg",
         alt: "The final act of Véspera: the bottle on a granite slab at night, the vineyard rows and terrain rendered as white ink hatching.",
         position: "object-top",
       },
       {
-        src: "/images/projects/vespera/detail-2.png",
+        src: "/images/projects/vespera/detail-2@2x.png",
         alt: "Véspera's Collection page, listing the three wines Lume, Sereno and Breu in large serif type on black.",
         position: "object-left",
       },

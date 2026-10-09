@@ -168,6 +168,7 @@ export function CaseStudyBody({
               src={detail.src}
               alt={detail.alt}
               fill
+              quality={90}
               sizes="(max-width: 900px) 100vw, 60vw"
               style={{ objectPosition: objectPositions[detail.position ?? ""] ?? "50% 50%" }}
             />

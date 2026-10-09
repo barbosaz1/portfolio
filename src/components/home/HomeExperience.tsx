@@ -423,6 +423,7 @@ export function HomeExperience({
               src={heroImage(project).src}
               alt={heroImage(project).alt}
               fill
+              quality={90}
               sizes="100vw"
               style={{ objectPosition: heroImage(project).position }}
             />

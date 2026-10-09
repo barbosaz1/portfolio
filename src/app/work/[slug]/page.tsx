@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CasePage } from "@/components/case/CasePage";
+import { heroImage } from "@/components/case/CaseStudyBody";
 import { projects, getProjectBySlug } from "@/lib/projects-data";
 import { siteConfig } from "@/lib/site-config";
 
@@ -16,6 +17,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return {};
+  const share = heroImage(project);
 
   return {
     title: `${project.name} - Case Study`,
@@ -26,13 +28,13 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.name} - Case Study | ${siteConfig.name}`,
       description: project.summary,
-      images: [{ url: project.coverImage, alt: project.coverAlt }],
+      images: [{ url: share.src, alt: share.alt }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${project.name} - Case Study`,
       description: project.summary,
-      images: [project.coverImage],
+      images: [share.src],
     },
   };
 }
@@ -54,7 +56,7 @@ export default async function ProjectPage({
     name: project.name,
     description: project.summary,
     url: `${siteConfig.url}/work/${project.slug}`,
-    image: `${siteConfig.url}${project.coverImage}`,
+    image: `${siteConfig.url}${heroImage(project).src}`,
     creator: {
       "@type": "Person",
       name: siteConfig.name,

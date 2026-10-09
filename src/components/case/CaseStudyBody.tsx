@@ -13,6 +13,18 @@ const objectPositions: Record<string, string> = {
   "object-right": "100% 50%",
 };
 
+// The image that represents a project: its designed banner when it has one,
+// otherwise the homepage screenshot anchored to the top.
+export function heroImage(project: Project) {
+  return project.banner
+    ? {
+        src: project.banner.src,
+        alt: project.banner.alt,
+        position: project.banner.position ?? "50% 50%",
+      }
+    : { src: project.coverImage, alt: project.coverAlt, position: "50% 0%" };
+}
+
 export function caseImages(project: Project) {
   return [
     { src: project.coverImage, alt: project.coverAlt },

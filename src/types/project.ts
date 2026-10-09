@@ -20,6 +20,13 @@ export type Project = {
   liveUrl?: string;
   coverImage: string;
   coverAlt: string;
+  /** Designed banner in the project's own UI; used as the cover where present. */
+  banner?: {
+    src: string;
+    alt: string;
+    /** CSS object-position, so the important part survives wide crops. */
+    position?: string;
+  };
   detailImages: [ProjectDetailImage, ProjectDetailImage];
   tech: string[];
   accent: ProjectAccent;

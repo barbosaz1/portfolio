@@ -9,6 +9,10 @@ export const projects: Project[] = [
     summary:
       "A boutique home cleaning brand serving Cape Cod, reimagined as a warm, editorial website that feels as considered as the homes it cares for.",
     liveUrl: "https://belaflorcleaning.com",
+    banner: {
+      src: "/images/projects/bela-flor-cleaning/banner.jpg",
+      alt: "Bela Flor banner: the headline Elegance in every detail in Cormorant Garamond over the softly lit living room, with the brand wordmark and rose pill buttons.",
+    },
     coverImage: "/images/projects/bela-flor-cleaning/cover.png",
     coverAlt:
       "Bela Flor Cleaning homepage showing a softly lit living room with the headline Elegance in every detail.",
@@ -58,6 +62,10 @@ export const projects: Project[] = [
     summary:
       "A real estate investment company in Vila do Conde and Póvoa de Varzim, redesigned around two clear paths - investors who want to join operations and owners with a property to propose - under an illustrated dusk skyline of the two towns.",
     liveUrl: "https://rb-investimentos.vercel.app",
+    banner: {
+      src: "/images/projects/rb-investimentos/banner.jpg",
+      alt: "R&B banner: the serif headline Investimento imobiliário com visão de longo prazo over the cobalt and peach dusk skyline of Vila do Conde and Póvoa de Varzim.",
+    },
     coverImage: "/images/projects/rb-investimentos/cover-2026.png",
     coverAlt:
       "R&B homepage: the serif headline Investimento imobiliário com visão de longo prazo over a cobalt-to-peach dusk illustration of the Vila do Conde and Póvoa de Varzim skyline.",
@@ -109,6 +117,10 @@ export const projects: Project[] = [
       "A premium dark theme for Visual Studio Code built for long coding sessions - a full design system across the editor, sidebar, terminal, debugger, and Git, where color is used as a semantic signal instead of decoration.",
     liveUrl: "https://github.com/barbosaz1/xubz-theme",
     liveUrlLabel: "View on GitHub",
+    banner: {
+      src: "/images/projects/xubz-theme/banner.jpg",
+      alt: "Xubz Dark banner: a VS Code window in the theme, with cyan keywords, green functions, gold types and a single red error squiggle.",
+    },
     coverImage: "/images/projects/xubz-theme/cover.png",
     coverAlt:
       "Xubz Dark theme applied in VS Code, showing syntax-highlighted TypeScript with cyan keywords, green functions, and gold classes.",
@@ -162,6 +174,10 @@ export const projects: Project[] = [
     summary:
       "A framework-agnostic UI kit shipped as native Web Components - one precision-instrument-inspired design language, a live tweakcn-style theme editor, and full documentation, usable from React, Vue, Svelte, PHP, Java, and Rust without a rewrite.",
     liveUrl: "https://xubz-ui.vercel.app/",
+    banner: {
+      src: "/images/projects/xubz-ui/banner.jpg",
+      alt: "Xubz UI banner: the headline Graduated, not rounded beside an instrument panel built from the real components - tabs, graduated slider, progress, switch, badges and avatars.",
+    },
     coverImage: "/images/projects/xubz-ui/cover.png",
     coverAlt:
       "The Xubz UI theme editor showing a full color and shape customization panel beside a live grid of components - accordions, tabs, cards, and menus - updating in real time.",
@@ -216,6 +232,10 @@ export const projects: Project[] = [
       "A from-scratch native IDE built on the idea of what Neovim would look like designed today: a real modal Vim engine, GPU-rendered text, and a first-class customization system, with no Electron and no browser engine anywhere in the stack.",
     liveUrl: "https://github.com/barbosaz1/xiux-ide",
     liveUrlLabel: "View on GitHub",
+    banner: {
+      src: "/images/projects/xiux/banner.jpg",
+      alt: "xiux banner: the IDE in its xiux Dark theme, showing Rust code, the NORMAL mode status line and the theme marketplace.",
+    },
     coverImage: "/images/projects/xiux/cover.png",
     coverAlt:
       "xiux IDE showing its file explorer sidebar and a Rust source file with live syntax highlighting for keywords, types, and functions.",
@@ -272,6 +292,11 @@ export const projects: Project[] = [
       "A scroll-driven WebGL story for a concept Dão wine brand: one continuous camera move from the granite hills, into a single grape, through the cellar and the bottle, and out into the night - every 3D object generated in code.",
     liveUrl: "https://vespera-sand.vercel.app",
     liveUrlLabel: "Open the experience",
+    banner: {
+      src: "/images/projects/vespera/banner.jpg",
+      alt: "Véspera banner: the Lume bottle on a granite slab at night, drawn in white ink lines, above the line The hour before dark.",
+      position: "50% 22%",
+    },
     coverImage: "/images/projects/vespera/cover.jpg",
     coverAlt:
       "Véspera's hero moment: a black bottle of Lume 2021 on a podium, drawn in white ink lines against a sunburst, in the experience's line-art style.",

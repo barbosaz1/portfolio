@@ -13,7 +13,7 @@ import {
   initScrollMotion,
   playHeroIntro,
 } from "@/components/home/motion";
-import { CaseStudyBody, caseImages } from "@/components/case/CaseStudyBody";
+import { CaseStudyBody, caseImages, heroImage } from "@/components/case/CaseStudyBody";
 import { ContactSection } from "@/components/site/ContactSection";
 import { useSiteUI } from "@/components/site/SiteShell";
 import { Lightbox } from "@/components/ui/Lightbox";
@@ -420,10 +420,11 @@ export function HomeExperience({
           <div className="case__art">
             <Image
               key={project.slug}
-              src={project.coverImage}
-              alt={project.coverAlt}
+              src={heroImage(project).src}
+              alt={heroImage(project).alt}
               fill
               sizes="100vw"
+              style={{ objectPosition: heroImage(project).position }}
             />
           </div>
         </div>

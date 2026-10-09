@@ -3,7 +3,7 @@
 import { useCallback, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { CaseStudyBody, caseImages } from "@/components/case/CaseStudyBody";
+import { CaseStudyBody, caseImages, heroImage } from "@/components/case/CaseStudyBody";
 import { ContactSection } from "@/components/site/ContactSection";
 import { Lightbox } from "@/components/ui/Lightbox";
 import type { Project } from "@/types/project";
@@ -40,11 +40,18 @@ export function CasePage({
             className="case__hero"
             type="button"
             data-cursor="Zoom"
-            aria-label={`View larger: ${project.coverAlt}`}
+            aria-label={`View the homepage screenshot: ${project.coverAlt}`}
             onClick={() => setLightbox(0)}
           >
             <span className="case__art">
-              <Image src={project.coverImage} alt={project.coverAlt} fill priority sizes="100vw" />
+              <Image
+                src={heroImage(project).src}
+                alt={heroImage(project).alt}
+                fill
+                priority
+                sizes="100vw"
+                style={{ objectPosition: heroImage(project).position }}
+              />
             </span>
           </button>
           <CaseStudyBody

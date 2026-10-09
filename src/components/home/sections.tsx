@@ -5,6 +5,7 @@ import Link from "next/link";
 import { SectionLink } from "@/components/site/SectionLink";
 import { JournalRow, describeTopics } from "@/components/journal/JournalRow";
 import { PlainChars, SplitChars, SplitWords } from "@/components/ui/Split";
+import { heroImage } from "@/components/case/CaseStudyBody";
 import { siteConfig } from "@/lib/site-config";
 import { intro, path, skills } from "@/lib/portfolio-content";
 import type { Project } from "@/types/project";
@@ -200,7 +201,13 @@ export function Work({
             >
               <span className="proj__hover">
                 <span className="proj__img">
-                  <Image src={p.coverImage} alt={p.coverAlt} fill sizes="100vw" />
+                  <Image
+                    src={heroImage(p).src}
+                    alt={heroImage(p).alt}
+                    fill
+                    sizes="100vw"
+                    style={{ objectPosition: heroImage(p).position }}
+                  />
                 </span>
               </span>
             </button>
